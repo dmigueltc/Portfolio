@@ -1,32 +1,36 @@
 # Estado do Projeto
 
-## Versao
+## Versão
 
 0.1.0
 
 ## Fase
 
-Planeamento
+FASE 01 — Levantamento de Requisitos
 
 ## Estado
 
-Pre-desenvolvimento
+Em levantamento
 
-## Concluido
+## Concluído
 
-- Visao inicial.
+- Visão inicial.
 - Stack preliminar.
-- Estrategia documental.
-- Estrategia AI-agnostic.
+- Estratégia documental.
+- Estratégia AI-agnostic.
 
 ## Em progresso
 
 - Levantamento de requisitos.
+- Organização das perguntas de descoberta.
+- Identificação de decisões pendentes.
 
-## Proximo passo
+## Próximo passo
 
-- Definicao dos requisitos funcionais e nao funcionais.
+- Responder às questões de `docs/02-requirements/requirements-discovery.md` e consolidar os requisitos aprovados.
 
 ## Nota
 
-Nao existem funcionalidades de software concluidas nesta fase.
+Não existem funcionalidades de software concluídas nesta fase.
+
+A FASE 01 ainda não está concluída.
