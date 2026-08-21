@@ -2,20 +2,33 @@
 
 ## Objetivo principal
 
-Preparar a base para um futuro website de portfolio pessoal profissional.
+Construir uma presença digital pessoal que apresente o Miguel, os seus interesses, competências, projetos e evolução.
 
-## Objetivos iniciais
+## Objetivos secundários
 
-- Criar uma estrutura documental clara.
-- Registar a visao e os principios do projeto.
-- Definir o estado inicial do projeto.
-- Preparar o repositorio para colaboracao futura.
-- Garantir independencia face a ferramentas de IA especificas.
+- Apresentar formação.
+- Apresentar competências.
+- Apresentar projetos.
+- Apresentar tecnologia.
+- Apresentar fotografia e criação visual.
+- Apresentar criação de conteúdo.
+- Apresentar interesses pessoais.
+- Permitir ligação às redes sociais.
+- Permitir contacto.
+- Preparar futuramente a apresentação de serviços.
+- Criar uma base para trabalho independente.
+- Permitir crescimento futuro da presença digital.
+
+## Não objetivo
+
+O site não deve ser concebido exclusivamente para procurar emprego nem tratado apenas como CV online.
 
 ## Fora desta fase
 
-- Desenvolvimento da aplicacao.
-- Criacao de codigo Django.
-- Criacao de frontend.
-- Criacao de modelos de base de dados.
-- Criacao de funcionalidades.
+- Desenvolvimento da aplicação.
+- Criação de frontend.
+- Criação de backend.
+- Criação de modelos de base de dados.
+- Instalação de dependências.
+- Criação de funcionalidades.
+- Criação de CI/CD.

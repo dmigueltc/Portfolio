@@ -2,35 +2,42 @@
 
 ## Versão
 
-0.1.0
+0.2.0
 
 ## Fase
 
-FASE 01 — Levantamento de Requisitos
+FASE 1 — Levantamento e Planeamento
 
 ## Estado
 
-Em levantamento
+Planeamento mestre em atualização
 
 ## Concluído
 
-- Visão inicial.
-- Stack preliminar.
-- Estratégia documental.
+- Visão inicial do projeto.
+- Estrutura documental base.
 - Estratégia AI-agnostic.
+- Identidade pública: Miguel Cardoso.
+- Conceito: portfólio profissional + hub pessoal.
+- Público principal e público secundário definidos.
+- Áreas conceptuais iniciais definidas: Tecnologia, Fotografia e Fitness.
+- Estrutura conceptual da Home definida.
+- Direção visual definida como minimalista pessoal/criativa.
 
 ## Em progresso
 
-- Levantamento de requisitos.
-- Organização das perguntas de descoberta.
-- Identificação de decisões pendentes.
+- Consolidação dos requisitos funcionais e não funcionais.
+- Fecho da arquitetura da informação.
+- Definição do conteúdo das páginas.
+- Definição da arquitetura técnica final.
+- Definição da estratégia de gestão de conteúdo.
 
 ## Próximo passo
 
-- Responder às questões de `docs/02-requirements/requirements-discovery.md` e consolidar os requisitos aprovados.
+- Fechar sitemap/arquitetura da informação e consolidar os requisitos aprovados a partir das decisões documentadas.
 
 ## Nota
 
 Não existem funcionalidades de software concluídas nesta fase.
 
-A FASE 01 ainda não está concluída.
+Não iniciar implementação, criação de componentes, instalação de dependências, frontend, backend, base de dados, CI/CD ou autenticação.

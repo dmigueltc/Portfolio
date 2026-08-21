@@ -1,57 +1,100 @@
 # Contexto do Projeto para IA
 
-## Objetivo
+## Identidade
 
-Preparar um futuro website de portfólio pessoal profissional, minimalista, seguro, documentado e preparado para evolução.
+Projeto oficial do portfólio pessoal de Miguel Cardoso.
+
+Conceito: portfólio profissional + hub pessoal.
+
+Posicionamento: estudante de Engenharia Informática, interessado em desenvolvimento, tecnologia e criação de conteúdo.
 
 ## Estado atual
 
-- Versão: 0.1.0
-- Fase: FASE 01 — Levantamento de Requisitos
-- Estado: Em levantamento
+- Versão documental: 0.2.0.
+- Fase: FASE 1 — Levantamento e Planeamento.
+- Estado: planeamento mestre em atualização.
 - Não existe implementação da aplicação.
 
-## Stack preliminar
+## Objetivo
 
-- Backend planeado: Python + Django
-- Base de dados planeada: PostgreSQL
-- Frontend planeado: HTML5, CSS3 e JavaScript
+Criar uma presença digital pessoal que apresente o Miguel, os seus interesses, competências, projetos e evolução, preparada para crescer futuramente para serviços, projetos profissionais, conteúdos e novas áreas.
 
-A stack não deve ser alterada nesta fase.
+## Público
+
+Público principal: seguidores e público geral, especialmente pessoas provenientes do Instagram.
+
+Público secundário: recrutadores, empresas, profissionais de tecnologia, programadores, potenciais clientes, colaboradores e parceiros profissionais.
+
+O site deve ser compreensível para pessoas sem conhecimentos técnicos e permitir profundidade progressiva para visitantes profissionais.
+
+## Áreas principais
+
+- Tecnologia: área de maior peso.
+- Fotografia: área de maior peso, incluindo edição de fotografia, vídeo e criação de conteúdo.
+- Fitness: interesse/hobby pessoal.
+
+Novas áreas podem ser adicionadas futuramente. A arquitetura não deve assumir que estas três áreas são fixas ou únicas.
+
+## Home conceptual aprovada
+
+1. Hero.
+2. Explora.
+3. Sobre mim.
+4. Projetos em destaque.
+5. Fotografia/criação.
+6. Contacto.
+7. Footer.
+
+A implementação visual detalhada ainda está pendente.
+
+## Direção visual
+
+Minimalista pessoal/criativa.
+
+Princípio: “Minimalismo sem ser vazio; criatividade sem ser exagerada.”
+
+Referência conceptual: `https://diogotc.com/`, apenas como inspiração de filosofia visual/minimalista. Não copiar design, layout, código, identidade visual ou conteúdo.
+
+## Stack e tecnologia
+
+- Python confirmado como linguagem de backend.
+- PHP não será utilizado.
+- Django é uma possibilidade a avaliar na fase de arquitetura técnica.
+- PostgreSQL continua uma possibilidade preliminar, mas a decisão final da base de dados está pendente.
+- Frontend final será definido na fase de arquitetura técnica.
+
+Não implementar nem instalar dependências nesta fase.
 
 ## Idiomas
 
-- Português de Portugal (PT-PT), idioma principal
-- English (EN)
-- Français (FR)
-
-## Áreas principais em análise
-
-- Programação e desenvolvimento web.
-- Tecnologia, hardware, computadores, otimização e troubleshooting de PC.
-- Fotografia, edição de fotografia, vídeo e criação de conteúdo digital.
-- Fitness, projetos pessoais e futuros projetos profissionais.
-
-Estas áreas ainda precisam de confirmação, priorização e estruturação nos requisitos.
+- Português de Portugal (PT-PT), idioma principal.
+- English (EN).
+- Français (FR).
 
 ## Decisões pendentes
 
-- Identidade e posicionamento profissional.
-- Público prioritário.
-- Estrutura de páginas e secções.
-- Modelo de apresentação de projetos, fotografia e vídeo.
-- Administração de conteúdo.
-- Estratégia multilingue.
-- Requisitos de SEO, acessibilidade, performance, segurança e manutenção.
+- Paleta de cores final.
+- Light/Dark mode.
+- Stack técnica final detalhada.
+- Estrutura final da base de dados.
+- Sistema final de gestão de conteúdo.
+- Conteúdo definitivo das páginas.
+- Elemento visual definitivo da Hero.
+- Projetos reais.
+- Serviços futuros.
+- Fotografia pessoal.
+- Logótipo.
+- Timeline/evolução.
+- Funcionalidades avançadas do Instagram.
 
-## Princípios
+## Regras para agentes
 
-- Simplicidade antes de complexidade.
-- Segurança desde o início.
-- Documentação obrigatória.
-- Independência face a ferramentas de IA específicas.
-- Sem funcionalidades, dependências ou decisões arquiteturais sem aprovação.
+Antes de implementar uma funcionalidade significativa:
 
-## Próxima etapa
-
-Responder às questões de `docs/02-requirements/requirements-discovery.md` e consolidar requisitos aprovados.
+1. Ler este documento.
+2. Ler `PROJECT_CONSTITUTION.md`.
+3. Verificar `docs/04-architecture/decisions/decision-log.md`.
+4. Verificar requisitos relevantes.
+5. Confirmar decisões pendentes.
+6. Implementar apenas quando a fase de desenvolvimento for autorizada.
+7. Atualizar documentação se alguma decisão mudar.

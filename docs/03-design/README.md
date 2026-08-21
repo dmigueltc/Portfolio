@@ -1,5 +1,11 @@
 # Design
 
-Documentacao futura de design.
+Documentação de design do projeto.
 
-Ainda nao existem decisoes de design aprovadas nesta fase.
+A direção visual aprovada é minimalista pessoal/criativa.
+
+Documento principal:
+
+- `design-principles.md`
+
+A paleta final, tipografia, layouts e componentes ainda estão pendentes.

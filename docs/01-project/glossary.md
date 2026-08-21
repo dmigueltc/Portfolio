@@ -1,21 +1,33 @@
-# Glossario
+# Glossário
 
 ## AI-agnostic
 
-Abordagem em que o projeto nao depende de uma ferramenta de Inteligencia Artificial especifica.
+Abordagem em que o projeto não depende de uma ferramenta de Inteligência Artificial específica.
 
 ## Fonte de verdade
 
-Local oficial onde o estado, as decisoes, os requisitos e o contexto do projeto sao registados. Neste projeto, a fonte de verdade e o repositorio GitHub e a documentacao nele existente.
+Local oficial onde o estado, as decisões, os requisitos e o contexto do projeto são registados. Neste projeto, a fonte de verdade é o repositório GitHub e a documentação nele existente.
+
+## Hub pessoal
+
+Espaço digital que apresenta interesses, criação, evolução e presença pessoal além de um CV tradicional.
+
+## Portfólio profissional + hub pessoal
+
+Conceito aprovado para o projeto: apresentar Miguel Cardoso de forma profissional, mas também pessoal e evolutiva.
 
 ## PT-PT
 
-Portugues de Portugal. Sera o idioma principal do website.
+Português de Portugal. É o idioma principal do website.
 
-## Pre-desenvolvimento
+## FASE 1 — Levantamento e Planeamento
 
-Estado em que o projeto ainda nao tem aplicacao implementada e se encontra em preparacao documental e de requisitos.
+Estado em que o projeto documenta decisões, requisitos, arquitetura da informação e princípios antes de qualquer implementação.
 
-## Stack tecnologica planeada
+## Stack técnica pendente
 
-Conjunto preliminar de tecnologias previstas para desenvolvimento futuro: Python, Django, PostgreSQL, HTML5, CSS3 e JavaScript.
+A linguagem Python está confirmada para backend e PHP está excluído. Django, PostgreSQL e a restante arquitetura técnica ainda serão avaliados numa fase própria.
+
+## Profundidade progressiva
+
+Forma de estruturar o conteúdo para ser simples para visitantes comuns e suficientemente detalhado para visitantes profissionais.

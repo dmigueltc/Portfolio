@@ -1,5 +1,9 @@
 # Base de Dados
 
-Documentacao futura sobre base de dados.
+Documentação futura sobre base de dados.
 
-PostgreSQL esta planeado como base de dados, mas modelos, esquemas e detalhes tecnicos ainda nao foram definidos.
+A estrutura final da base de dados ainda não está definida.
+
+PostgreSQL continua uma possibilidade preliminar, mas não deve ser tratado como decisão final até à fase de arquitetura técnica.
+
+Não criar modelos, esquemas, migrations ou base de dados nesta fase.

@@ -1,32 +1,72 @@
 # Critérios de Aceitação
 
-Os critérios de aceitação definitivos serão criados posteriormente, depois dos requisitos serem aprovados.
+Nesta etapa, os critérios de aceitação são definidos apenas para decisões já aprovadas. Para decisões ainda abertas, usar: “Critérios de aceitação: pendentes até à definição da funcionalidade.”
 
-Nesta fase, este documento define apenas a forma como os critérios deverão ser derivados dos requisitos.
+## Critérios iniciais aprovados
 
-## Regra principal
-
-Cada critério de aceitação deve estar ligado a um requisito aprovado. Não devem existir critérios definitivos para requisitos ainda pendentes.
-
-## Formato futuro
-
-```text
-ID:
-CA-XXX
+### CA-001 — Identidade pública
 
 Requisito relacionado:
-RF-XXX / RNF-XXX
+RF-001.
 
 Critério:
-
-Condição de aceitação:
+O website identifica claramente Miguel Cardoso como proprietário do portfólio.
 
 Estado:
-Proposto / Aprovado / Rejeitado
+Aprovado.
 
-Observações:
-```
+### CA-002 — Conceito do projeto
 
-## Estado atual
+Requisito relacionado:
+RF-003.
 
-Não existem critérios de aceitação definitivos nesta fase.
+Critério:
+A documentação e a futura estrutura do site devem tratar o projeto como portfólio profissional + hub pessoal, não apenas como CV online.
+
+Estado:
+Aprovado.
+
+### CA-003 — Home conceptual
+
+Requisito relacionado:
+RF-006.
+
+Critério:
+A arquitetura da informação deve documentar a Home com Hero, Explora, Sobre mim, Projetos em destaque, Fotografia/criação, Contacto e Footer.
+
+Estado:
+Aprovado.
+
+### CA-004 — Idioma principal
+
+Requisito relacionado:
+RF-010.
+
+Critério:
+A documentação deve manter Português de Portugal como idioma principal e não usar Português do Brasil como referência principal.
+
+Estado:
+Aprovado.
+
+### CA-005 — Decisões pendentes
+
+Requisito relacionado:
+Requisitos pendentes.
+
+Critério:
+Funcionalidades ou decisões sem aprovação explícita devem permanecer marcadas como pendentes ou futuras.
+
+Estado:
+Aprovado.
+
+## Critérios pendentes
+
+- Gestão de conteúdo.
+- Projetos reais.
+- Fotografia/criação.
+- Contacto e proteção contra spam.
+- SEO.
+- Acessibilidade mensurável.
+- Performance mensurável.
+- Segurança técnica.
+- Deployment.

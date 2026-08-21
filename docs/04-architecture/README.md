@@ -1,5 +1,12 @@
 # Arquitetura
 
-Documentacao futura de arquitetura.
+Documentação de arquitetura do projeto.
 
-Ainda nao existem decisoes arquiteturais definitivas aprovadas nesta fase.
+Nesta fase existe apenas arquitetura conceptual e arquitetura da informação. A arquitetura técnica final ainda está pendente.
+
+Documentos principais:
+
+- `information-architecture.md`
+- `decisions/decision-log.md`
+
+Não criar implementação técnica, modelos, serviços, componentes ou integrações nesta fase.

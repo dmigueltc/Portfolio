@@ -3,6 +3,17 @@
 Este é o documento principal da FASE 01 — Levantamento de Requisitos.
 
 O objetivo é recolher respostas e decisões do proprietário do projeto antes de transformar qualquer possibilidade em requisito aprovado. Todas as decisões começam como pendentes.
+## Atualização pelo planeamento mestre
+
+Algumas questões deste documento já receberam decisões no planeamento mestre do projeto. As decisões consolidadas devem ser consultadas em:
+
+- `docs/02-requirements/functional-requirements.md`
+- `docs/02-requirements/non-functional-requirements.md`
+- `docs/02-requirements/requirements-matrix.md`
+- `docs/04-architecture/information-architecture.md`
+- `docs/04-architecture/decisions/decision-log.md`
+
+Questões ainda sem decisão explícita continuam pendentes. Não transformar possibilidades em requisitos obrigatórios sem validação.
 
 ## Como preencher
 
@@ -673,3 +684,4 @@ Decisão:
 Estado:
 Pendente
 ```
+

@@ -1,79 +1,92 @@
 # User Stories
 
-O levantamento de user stories está em curso.
+As histórias abaixo representam necessidades identificadas no planeamento mestre. Continuam dependentes de requisitos detalhados, UX/UI e arquitetura técnica antes de implementação.
 
-As histórias abaixo servem como estrutura de trabalho. Só devem ser consideradas aprovadas depois de validadas pelo proprietário do projeto e relacionadas com requisitos aprovados.
+## Tipos de utilizador
 
-## Formato
-
-```text
-US-XXX
-
-Como [tipo de utilizador],
-quero [objetivo],
-para [benefício].
-
-Estado:
-Proposta / Aprovada / Rejeitada / Futuro
-
-Requisitos relacionados:
-```
-
-## Tipos de utilizador a considerar
-
-- Visitante.
+- Visitante comum.
+- Visitante profissional.
 - Proprietário/administrador.
 
-## Histórias pendentes de validação
+## Histórias aprovadas como direção de produto
 
-### US-001
+### US-001 — Visitante comum compreende o projeto
 
-Como visitante,
-quero compreender rapidamente quem é o proprietário do portfólio,
-para perceber se o perfil é relevante para mim.
-
-Estado:
-Proposta
-
-Requisitos relacionados:
-Pendente.
-
-### US-002
-
-Como visitante,
-quero consultar áreas de trabalho e interesse do proprietário,
-para conhecer competências, projetos e conteúdos relevantes.
+Como visitante comum,
+quero perceber rapidamente quem é o Miguel e o que encontro no site,
+para conseguir explorar o portfólio mesmo sem conhecimentos técnicos.
 
 Estado:
-Proposta
+Aprovada como direção.
 
 Requisitos relacionados:
-Pendente.
+RF-001, RF-002, RF-003.
 
-### US-003
+### US-002 — Visitante explora áreas pessoais e criativas
+
+Como visitante comum,
+quero explorar áreas como tecnologia, fotografia e fitness,
+para conhecer interesses, conteúdos e evolução do Miguel.
+
+Estado:
+Aprovada como direção.
+
+Requisitos relacionados:
+RF-004, RF-005, RF-006.
+
+### US-003 — Visitante profissional aprofunda informação
+
+Como visitante profissional,
+quero encontrar projetos, competências, tecnologias e formas de contacto,
+para avaliar o perfil do Miguel com mais detalhe.
+
+Estado:
+Aprovada como direção.
+
+Requisitos relacionados:
+RF-003, RF-007, RF-009.
+
+### US-004 — Visitante acompanha presença externa
+
+Como visitante proveniente do Instagram,
+quero aceder facilmente a áreas e ligações relevantes,
+para continuar a acompanhar o trabalho do Miguel sem depender apenas de uma rede social.
+
+Estado:
+Aprovada como direção.
+
+Requisitos relacionados:
+RF-009, RNF-010.
+
+### US-005 — Proprietário mantém conteúdo
 
 Como proprietário/administrador,
-quero gerir conteúdo sem alterar código,
-para manter o portfólio atualizado de forma sustentável.
+quero conseguir adicionar, editar, ocultar e remover conteúdo sem alterações complexas no código,
+para manter o portfólio atualizado ao longo do tempo.
 
 Estado:
-Proposta
+Aprovada como necessidade; implementação pendente.
 
 Requisitos relacionados:
-Pendente.
+RF-005, RF-007, RF-008.
 
-### US-004
+### US-006 — Visitante usa o site em diferentes idiomas
 
 Como visitante,
 quero aceder ao website em PT-PT, EN ou FR,
 para consultar o conteúdo no idioma mais adequado.
 
 Estado:
-Proposta
+Aprovada como direção.
 
 Requisitos relacionados:
-Pendente.
+RF-010.
 
-## Nota
+## Histórias pendentes
 
-Estas histórias refletem o contexto do projeto, mas ainda não aprovam funcionalidades específicas nem decisões de implementação.
+- Gestão detalhada de projetos.
+- Gestão detalhada de fotografia e vídeo.
+- Serviços futuros.
+- Formulário de contacto.
+- Funcionalidades avançadas de Instagram.
+- Timeline/evolução.
