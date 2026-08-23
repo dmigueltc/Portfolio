@@ -1,185 +1,269 @@
-# Requisitos Não Funcionais
+# Requisitos Não Funcionais V1
 
-Este documento organiza requisitos de qualidade, restrições e princípios técnicos para o portfólio Miguel Cardoso.
+Este documento define os requisitos não funcionais V1 para o portfólio Miguel Cardoso. O objetivo é descrever os requisitos de qualidade, segurança, desempenho, manutenção e experiência do utilizador sem tomar decisões técnicas definitivas nesta fase.
 
-## Requisitos aprovados
+IMPORTANTE: Esta fase é EXCLUSIVAMENTE documental. Não implementar, não instalar dependências, não fazer commits nem push nesta etapa.
 
-### RNF-001 — Simplicidade e manutenção
+## 1. Contexto
 
-Categoria:
-Manutenção.
+O projecto é um "Portfólio profissional + hub pessoal" cuja identidade pública é Miguel Cardoso.
 
-Descrição:
-A solução deve privilegiar simplicidade, código legível, baixo acoplamento e facilidade de manutenção.
+Mensagem principal:
+"Sou estudante de Engenharia Informática, interessado em desenvolvimento, tecnologia e criação de conteúdo."
 
-Prioridade:
-Must Have.
+Público principal: seguidores, amigos, familiares, conhecidos e público geral (principalmente visitantes provenientes do Instagram).
+Público secundário: recrutadores, profissionais, empresas, potenciais clientes e colaboradores.
 
-Estado:
-Aprovado.
+Áreas principais: Tecnologia (maior peso), Fotografia (maior peso), Fitness (hobby). O site deve permitir adicionar novas áreas no futuro sem reconstruir a aplicação.
 
-Critérios de aceitação:
-Pendentes até existir arquitetura técnica e código avaliável.
+Idiomas obrigatórios: PT-PT (principal), EN, FR.
 
-### RNF-002 — Direção visual minimalista pessoal/criativa
+Direção visual: Minimalista pessoal/criativa — clean, profissional, pessoal, criativo, agradável, simples sem ser vazio.
 
-Categoria:
-Usabilidade / Design.
+## 2. Documentação a ler (pré-requisitos)
 
-Descrição:
-A experiência visual deve ser clean, minimalista, profissional, pessoal, criativa, confortável para os olhos e com excelente legibilidade.
+Antes de alterar este documento, consultar:
+- README.md
+- docs/11-ai/PROJECT_CONTEXT.md
+- PROJECT_CONSTITUTION.md
+- PROJECT_STATUS.md
+- AGENTS.md
+- docs/04-architecture/information-architecture.md
+- docs/04-architecture/sitemap-v1.md
+- docs/04-architecture/decisions/decision-log.md
+- docs/02-requirements/functional-requirements.md
 
-Prioridade:
-Must Have.
+Se existir conflito entre documentos, registar o conflito e indicar qual decisão/documento parece ser mais recente.
 
-Estado:
-Aprovado.
+## 3. Objetivo
 
-Critérios de aceitação:
-A documentação de design deve refletir a direção “Minimalismo sem ser vazio; criatividade sem ser exagerada.”
+Criar/atualizar: docs/02-requirements/non-functional-requirements.md
 
-### RNF-003 — Evitar excesso visual
+Descrever COMO o sistema deve funcionar em termos de qualidade, segurança, desempenho, manutenção e experiência do utilizador, sem definir tecnologias específicas.
 
-Categoria:
-Usabilidade.
+## 4. Categorias (sugestão de identificação)
 
-Descrição:
-O site deve evitar excesso de elementos, cores, animações, estética tecnológica exagerada e complexidade visual cansativa.
+- NFR-001 — Performance
+- NFR-002 — Responsividade
+- NFR-003 — Acessibilidade
+- NFR-004 — Segurança
+- NFR-005 — Privacidade e protecção de dados
+- NFR-006 — SEO
+- NFR-007 — Compatibilidade
+- NFR-008 — Manutenibilidade
+- NFR-009 — Escalabilidade
+- NFR-010 — Qualidade do código
+- NFR-011 — Internacionalização
+- NFR-012 — Gestão de assets
+- NFR-013 — Disponibilidade e recuperação
+- NFR-014 — Observabilidade e erros
+- NFR-015 — Experiência do utilizador
+- NFR-016 — Segurança de conteúdo
+- NFR-017 — Versionamento e colaboração
+- NFR-018 — Sustentabilidade da arquitetura
 
-Prioridade:
-Must Have.
+Os identificadores podem ser ajustados conforme o padrão do repositório.
 
-Estado:
-Aprovado.
+## 5. Performance (NFR-001)
 
-Critérios de aceitação:
-Pendentes até à fase de UX/UI.
+Requisitos e orientações:
+- Carregamento rápido e experiência snappy.
+- Evitar JavaScript desnecessário e recursos bloqueadores.
+- Optimização de imagens (formats modernos quando apropriado) e media.
+- Lazy-loading quando adequado.
+- Evitar assets pesados; preferir compressão e optimização.
+- Minimizar requests críticos e optimizar a ordem de carregamento.
+- Boa experiência em conexões móveis e dispositivos modestos.
 
-### RNF-004 — Responsividade
+Nota: Não definir números rígidos sem justificação. Objectivos mensuráveis podem ser definidos mais tarde na fase de testes.
 
-Categoria:
-Responsividade.
+## 6. Responsividade (NFR-002)
 
-Descrição:
-O site deve ser utilizável em desktop e mobile. Funcionalidades não podem depender exclusivamente de hover.
+Requisitos:
+- Suporte para smartphone, tablet, laptop e desktop.
+- Mobile como experiência de primeira classe.
+- Não depender de hover para funcionalidades essenciais.
+- Layouts que se adaptem a diferentes resoluções sem cortar conteúdo essencial.
 
-Prioridade:
-Must Have.
+## 7. Acessibilidade (NFR-003)
 
-Estado:
-Aprovado.
+Requisitos:
+- Contraste adequado e legível.
+- Navegação por teclado e foco visível.
+- Texto alternativo em imagens relevantes.
+- Semântica HTML correcta e labels apropriados.
+- Hierarquia de títulos clara e conteúdo compreensível.
+- Redução de movimento quando pedido pelo utilizador.
+- Suporte a tecnologias assistivas (readers, etc.).
 
-Critérios de aceitação:
-Pendentes até à fase de UX/UI e testes.
+Nota: Aderir a boas práticas próximas das WCAG; não declarar conformidade formal sem testes.
 
-### RNF-005 — Acessibilidade
+## 8. Segurança (NFR-004)
 
-Categoria:
-Acessibilidade.
+Orientações principais:
+- Validação e sanitização de entrada.
+- Protecções contra XSS e CSRF (quando aplicável).
+- Protecção contra SQL Injection e validação de uploads.
+- Gestão segura de autenticação futura e armazenamento de passwords.
+- Gestão segura de secrets (variáveis de ambiente) e princípio do menor privilégio.
+- Dependências actualizadas e revisão de segurança periódica.
+- HTTPS em ambiente de produção e headers de segurança apropriados.
+- Protecções contra abuso (rate-limiting, validação de formulários).
+- Logging sem exposição de dados sensíveis.
 
-Descrição:
-O site deve considerar legibilidade, contraste, navegação por teclado, texto alternativo, semântica HTML, foco visível, leitores de ecrã e movimento reduzido.
+Nota: Documentar requisitos; não implementar agora.
+
+## 9. Privacidade e protecção de dados (NFR-005)
 
-Prioridade:
-Must Have.
+Considerações:
+- RGPD/GDPR (quando aplicável).
+- Minimização de dados pessoais e justificativa para qualquer armazenamento.
+- Formulários de contacto e tratamento de consentimento quando necessário.
+- Cookies e analytics: documentar e pedir decisão posterior.
+- Política de privacidade futura.
 
-Estado:
-Aprovado como princípio; métricas finais pendentes.
+## 10. SEO (NFR-006)
 
-Critérios de aceitação:
-Pendentes até à definição da estratégia de acessibilidade.
+Requisitos:
+- Títulos e meta descriptions adequados.
+- URLs legíveis e canónicas.
+- Open Graph / social sharing metadata.
+- sitemap.xml e robots.txt preparados.
+- Dados estruturados quando fizer sentido.
+- Suportar internacionalização/idiomas em URLs e metadados.
 
-### RNF-006 — Performance
+Nota: SEO não deve prejudicar performance ou acessibilidade.
 
-Categoria:
-Performance.
+## 11. Compatibilidade (NFR-007)
 
-Descrição:
-O site deve ser rápido e preparado para otimização de imagens, media, CSS, JavaScript e carregamento de fontes.
+Requisitos:
+- Suporte razoável para browsers modernos.
+- Não forçar suporte para browsers antigos sem necessidade.
 
-Prioridade:
-Must Have.
+## 12. Manutenibilidade (NFR-008)
 
-Estado:
-Aprovado como princípio; métricas finais pendentes.
-
-Critérios de aceitação:
-Pendentes até à definição de objetivos mensuráveis.
-
-### RNF-007 — Segurança desde o início
-
-Categoria:
-Segurança.
-
-Descrição:
-A arquitetura futura deve considerar autenticação administrativa, autorização, proteção contra CSRF, XSS, SQL injection, validação de uploads, proteção de secrets, HTTPS, backups e logs.
-
-Prioridade:
-Must Have.
-
-Estado:
-Aprovado como princípio; controlos finais pendentes.
-
-Critérios de aceitação:
-Pendentes até à fase de segurança e arquitetura técnica.
-
-### RNF-008 — Conteúdo desacoplado da apresentação
-
-Categoria:
-Arquitetura / Manutenção.
-
-Descrição:
-Conteúdo e apresentação devem estar separados sempre que fizer sentido, para facilitar edição, tradução, expansão e manutenção.
-
-Prioridade:
-Should Have.
-
-Estado:
-Aprovado como princípio.
-
-Critérios de aceitação:
-Pendentes até à definição da arquitetura técnica.
-
-### RNF-009 — Tokens de design para cores
-
-Categoria:
-Design / Manutenção.
-
-Descrição:
-As cores devem ser centralizadas através de tokens ou variáveis de design, evitando valores dispersos por muitos ficheiros.
-
-Prioridade:
-Should Have.
-
-Estado:
-Aprovado.
-
-Critérios de aceitação:
-Pendentes até existir implementação visual.
-
-### RNF-010 — Independência de plataformas externas
-
-Categoria:
-Disponibilidade / Manutenção.
-
-Descrição:
-O site pode ligar ao Instagram e outras plataformas, mas não deve depender da API ou disponibilidade do Instagram para funcionar.
-
-Prioridade:
-Should Have.
-
-Estado:
-Aprovado.
-
-Critérios de aceitação:
-Pendentes até à definição da integração externa.
-
-## Decisões pendentes
-
-- Paleta de cores final.
-- Light/Dark mode.
-- Métricas de performance.
-- Nível formal de acessibilidade.
-- Estratégia final de SEO.
-- Compatibilidade mínima de browsers e dispositivos.
-- Estratégia de backups, logs e gestão de secrets.
+Princípios:
+- Código e conteúdos devem ser legíveis e simples.
+- Separação clara de responsabilidades.
+- Estrutura que permita a uma nova pessoa localizar e editar conteúdos, assets e traduções.
+- Evitar duplicação e complexidade desnecessária.
+- Comentários apenas quando esclarecem o que não é óbvio.
+
+## 13. Escalabilidade (NFR-009)
+
+Requisitos:
+- Permitir crescimento gradual (novos projetos, fotografias, áreas, idiomas, media).
+- Evitar arquitectura excessivamente complexa antecipando necessidades hipotéticas.
+- Preparado para crescer, simples no presente.
+
+## 14. Qualidade do código (NFR-010)
+
+Princípios:
+- Nomes claros e consistentes.
+- Funções / componentes com responsabilidade limitada.
+- Tratamento adequado de erros.
+- Evitar código morto e duplicação.
+- Dependências justificadas.
+
+Nota: Não escolher ferramentas de linting/formatting nesta fase.
+
+## 15. Internacionalização (NFR-011)
+
+Requisitos:
+- Suportar PT-PT (padrão), EN e FR.
+- Separar conteúdo traduzível da estrutura.
+- Evitar textos hardcoded espalhados pelo código.
+- Permitir adicionar idiomas futuramente com facilidade.
+
+## 16. Gestão de assets (NFR-012)
+
+Requisitos:
+- Organização previsível de imagens, fotografias, vídeos, ícones e fontes.
+- Nomes claros e evitar duplicação.
+- Optimização e respeito por licenciamento/direitos de utilização.
+- Não armazenar dados sensíveis em assets.
+
+## 17. Disponibilidade e recuperação (NFR-013)
+
+Requisitos:
+- Backups quando existirem dados persistentes.
+- Documentação de deployment e recuperação.
+- Possibilidade de restaurar versões anteriores através do Git.
+
+## 18. Observabilidade e erros (NFR-014)
+
+Requisitos:
+- Tratar erros de forma previsível e não expor stack traces ao utilizador.
+- Registar erros relevantes em produção quando apropriado.
+- Separar mensagens para utilizador das mensagens técnicas.
+
+## 19. Experiência do utilizador (NFR-015)
+
+Requisitos:
+- Intuitivo para utilizadores não técnicos.
+- Navegação clara e descoberta eficiente de informação.
+- Evitar excesso de menus e animações perturbadoras.
+- Estados claros para links, botões e formulários.
+- Funcionamento robusto em mobile.
+
+## 20. Segurança de conteúdo (NFR-016)
+
+Requisitos:
+- Evitar uploads inseguros e ficheiros perigosos.
+- Validar e restringir tipos de ficheiro e tamanho quando existir upload.
+- Proteger contra conteúdo externo não confiável e scripts incorporados.
+
+## 21. Colaboração e Multi-IA (NFR-017)
+
+Requisitos:
+- Manter independência de qualquer IA como fonte única de verdade.
+- Fomentar trabalho via Git, branches, commits e revisão.
+- Preservar decision log e documentação.
+
+## 22. Sustentabilidade da arquitectura (NFR-018)
+
+Princípios:
+- Evitar dependências e frameworks por moda.
+- Evitar microserviços e sistemas demasiado complexos para a escala do projecto.
+- Complexidade justificada por necessidade real.
+
+## 23. Critérios de aceitação
+
+Cada requisito não funcional deve ter critérios de aceitação verificáveis quando possível. Se depender de implementação, marcar "Validar na fase de testes".
+
+## 24. Pendências (decisões técnicas ainda por tomar)
+
+Manter pendentes:
+- framework Python
+- frontend
+- base de dados
+- CMS
+- sistema de autenticação
+- hosting e deployment
+- CDN
+- analytics
+- sistema de email
+- sistema de uploads
+- estratégia final de cache
+- monitorização e backups
+- estrutura definitiva de assets
+- arquitectura de tradução
+
+## 25. Validação final
+
+Depois de atualizar o documento, validar coerência com:
+- docs/04-architecture/sitemap-v1.md
+- docs/02-requirements/functional-requirements.md
+- docs/11-ai/PROJECT_CONTEXT.md
+- docs/04-architecture/decisions/decision-log.md
+
+Procurar requisitos duplicados, contradições e evitar decisões técnicas prematuras. Garantir PT-PT como idioma do documento.
+
+Mostrar no final:
+- ficheiros alterados
+- número de NFRs criados/atualizados
+- principais requisitos
+- decisões que continuam pendentes
+- eventuais conflitos encontrados
+
+Nota: NÃO fazer commit nem push como parte desta operação.
