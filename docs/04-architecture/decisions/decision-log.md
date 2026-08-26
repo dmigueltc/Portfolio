@@ -147,6 +147,14 @@ Instagram será uma origem principal de tráfego, mas o site não deve depender 
 Consequência:
 Integração inicial deve ser simples ou limitada a ligações, salvo decisão futura.
 
+## Recomendações para V1
+
+- Django (recomendado)
+- Django Templates
+- JavaScript mínimo
+- Django Admin (solução base de administração de conteúdo)
+- arquitetura monolítica modular
+
 ## Decisões pendentes
 
 ### PEND-001 — Paleta de cores final
