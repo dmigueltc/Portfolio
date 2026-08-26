@@ -40,7 +40,7 @@ Para este projeto, a recomendação técnica para a V1 é:
 
 - arquitetura web em Python;
 - aplicação monolítica modular, em vez de microserviços;
-- frontend server-rendered ou híbrido leve, sem necessidade de SPA complexa;
+- frontend server-rendered (Django Templates) com HTML semântico, CSS organizado e JavaScript mínimo e modular — progressive enhancement quando apropriado; não usar React/Vue nem SPA na V1;
 - gestão de conteúdo simples e previsível;
 - separação clara entre conteúdo, domínio, apresentação e integrações externas.
 
@@ -270,7 +270,8 @@ A gestão de conteúdo deve ser simples, clara e fácil de manter, sem espalhar 
 - usar uma abordagem orientada a modelos para áreas, páginas, projetos, media e traduções;
 - manter conteúdo estruturado e separável da apresentação;
 - evitar duplicação excessiva de textos e campos;
-- gerir media em diretórios organizados e por tipo.
+- gerir media em diretórios organizados e por tipo;
+- para V1, usar Django Admin como solução base de administração de conteúdo (sem introduzir um CMS externo);
 
 ### 7.3. Conteúdo principal
 
@@ -335,6 +336,9 @@ Ainda não existe decisão final de base de dados, mas a arquitetura deve prepar
 ### 10.2. Direção recomendada
 
 - base de dados relacional, por ser natural para conteúdo estruturado e gestão de projetos;
+- para desenvolvimento local: SQLite é aceitável e recomendado pela sua simplicidade;
+- para produção: PostgreSQL é a opção provável/recomendada, embora permaneça como DECISÃO PENDENTE até à fase técnica de implementação/deployment;
+- suportar Django migrations, estratégias de backup, e práticas de segurança e acesso;
 - suporte simples para paginação, relações e queries;
 - compatibilidade com Django ORM em caso de adoção do Django.
 
