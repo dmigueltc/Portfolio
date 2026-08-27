@@ -29,9 +29,10 @@ Antes de qualquer funcionalidade significativa:
 4. Verificar `docs/04-architecture/decisions/decision-log.md`.
 5. Consultar requisitos em `docs/02-requirements/`.
 6. Consultar arquitetura e design relevantes.
-7. Confirmar se a decisão está aprovada, pendente ou futura.
-8. Não implementar decisões pendentes.
-9. Atualizar documentação se a implementação alterar alguma decisão.
+7. Consultar `docs/07-development/development-foundation-v1.md`.
+8. Confirmar se a decisão está aprovada, recomendada, pendente ou futura.
+9. Não implementar decisões pendentes.
+10. Atualizar documentação se a implementação alterar alguma decisão.
 
 ## Regras atuais
 
@@ -43,7 +44,8 @@ Antes de qualquer funcionalidade significativa:
 - Não criar base de dados.
 - Não criar CI/CD.
 - Não criar conteúdo fictício.
-- Não assumir Django como decisão final.
+- Django Templates, JavaScript mínimo e Django Admin são recomendações para
+  a V1 descritas na Foundation, não decisões irrevogáveis.
 - Não assumir PostgreSQL como decisão final.
 - Não depender do Instagram para funcionamento do site.
 

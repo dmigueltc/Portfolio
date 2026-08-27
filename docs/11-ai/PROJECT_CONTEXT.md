@@ -11,8 +11,9 @@ Posicionamento: estudante de Engenharia Informática, interessado em desenvolvim
 ## Estado atual
 
 - Versão documental: 0.2.0.
-- Fase: FASE 1 — Levantamento e Planeamento.
-- Estado: planeamento mestre em atualização.
+- Fase: FASE 5 — Development Foundation V1 (especificação documental).
+- Estado: Foundation V1 especificada; implementação da aplicação ainda não
+  iniciada.
 - Não existe implementação da aplicação.
 
 ## Objetivo
@@ -59,9 +60,11 @@ Referência conceptual: `https://diogotc.com/`, apenas como inspiração de filo
 
 - Python confirmado como linguagem de backend.
 - PHP não será utilizado.
-- Django é uma possibilidade a avaliar na fase de arquitetura técnica.
+- Django é a recomendação técnica para V1, conforme a arquitetura e a
+  Development Foundation, mas não é uma decisão irrevogável.
 - PostgreSQL continua uma possibilidade preliminar, mas a decisão final da base de dados está pendente.
-- Frontend final será definido na fase de arquitetura técnica.
+- A solução recomendada para V1 é Django Templates com HTML semântico, CSS
+  organizado e JavaScript mínimo/modular; React/Vue e SPA ficam fora da V1.
 
 Não implementar nem instalar dependências nesta fase.
 
@@ -86,6 +89,8 @@ Não implementar nem instalar dependências nesta fase.
 - Logótipo.
 - Timeline/evolução.
 - Funcionalidades avançadas do Instagram.
+- Decisões detalhadas da Development Foundation, incluindo base de dados de
+  produção, storage de media, URLs multilíngues e deployment.
 
 ## Regras para agentes
 
@@ -97,4 +102,6 @@ Antes de implementar uma funcionalidade significativa:
 4. Verificar requisitos relevantes.
 5. Confirmar decisões pendentes.
 6. Implementar apenas quando a fase de desenvolvimento for autorizada.
-7. Atualizar documentação se alguma decisão mudar.
+7. Consultar `docs/07-development/development-foundation-v1.md` antes de
+   preparar a base técnica.
+8. Atualizar documentação se alguma decisão mudar.
