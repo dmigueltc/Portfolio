@@ -2,7 +2,8 @@
 
 ## Estado do projeto
 
-O projeto está na FASE 1 — Levantamento e Planeamento.
+O projeto está na FASE 5 — Development Foundation V1 (especificação
+documental). A implementação ainda não foi autorizada.
 
 Não implementar funcionalidades, componentes, frontend, backend, base de dados, autenticação, CI/CD ou dependências nesta fase sem autorização explícita.
 
@@ -12,9 +13,11 @@ Decisões atuais:
 
 - Python está confirmado como linguagem de backend.
 - PHP não será utilizado.
-- Django é uma possibilidade a avaliar na fase de arquitetura técnica, não uma decisão final.
+- Django é a recomendação técnica para V1, mas não uma decisão irrevogável.
 - PostgreSQL é uma possibilidade preliminar, não uma decisão final.
-- Frontend final será definido na fase de arquitetura técnica.
+- A solução recomendada para V1 é Django Templates, HTML semântico, CSS
+  organizado e JavaScript mínimo/modular; React/Vue e SPA não fazem parte da
+  V1.
 
 ## Fonte de verdade
 
@@ -25,6 +28,7 @@ Antes de sugerir alterações significativas, consultar:
 - `docs/11-ai/PROJECT_CONTEXT.md`
 - `docs/04-architecture/decisions/decision-log.md`
 - requisitos em `docs/02-requirements/`
+- `docs/07-development/development-foundation-v1.md`
 
 ## Princípios
 

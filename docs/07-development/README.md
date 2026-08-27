@@ -1,11 +1,14 @@
 # Desenvolvimento
 
-Documentação futura de desenvolvimento.
+Documentação de desenvolvimento do projeto.
 
-Ainda não existe aplicação, setup técnico, dependências instaladas ou comandos de execução.
+## Documentos principais
 
-Documento principal para continuidade com IA:
+- `development-foundation-v1.md` — especificação documental da base técnica
+  Django a preparar na próxima fase.
+- `ai-development-guide.md` — regras gerais para continuidade assistida por IA.
 
-- `ai-development-guide.md`
-
-A implementação só deverá começar depois de fechados requisitos, UX/UI, arquitetura técnica, stack final, segurança, testes e deployment.
+Ainda não existe aplicação, setup técnico, dependências instaladas ou comandos
+de execução. A Foundation V1 é uma especificação para implementação futura;
+não representa código implementado nem fecha as decisões marcadas como
+pendentes.

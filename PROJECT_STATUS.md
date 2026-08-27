@@ -6,11 +6,11 @@
 
 ## Fase
 
-FASE 1 — Levantamento e Planeamento
+FASE 5 — Development Foundation V1 (especificação documental)
 
 ## Estado
 
-Planeamento mestre em atualização
+Especificação da Development Foundation V1 concluída; implementação ainda não iniciada.
 
 ## Concluído
 
@@ -23,21 +23,23 @@ Planeamento mestre em atualização
 - Áreas conceptuais iniciais definidas: Tecnologia, Fotografia e Fitness.
 - Estrutura conceptual da Home definida.
 - Direção visual definida como minimalista pessoal/criativa.
+- Arquitetura técnica V1 documentada.
+- Development Foundation V1 especificada para implementação futura.
 
 ## Em progresso
 
-- Consolidação dos requisitos funcionais e não funcionais.
-- Fecho da arquitetura da informação.
-- Definição do conteúdo das páginas.
-- Definição da arquitetura técnica final.
-- Definição da estratégia de gestão de conteúdo.
+- Validação humana da Development Foundation V1.
+- Decisões técnicas pendentes da implementação.
 
 ## Próximo passo
 
-- Fechar sitemap/arquitetura da informação e consolidar os requisitos aprovados a partir das decisões documentadas.
+- Aprovar as decisões pendentes e iniciar a implementação da base técnica,
+  seguindo `docs/07-development/development-foundation-v1.md`.
 
 ## Nota
 
 Não existem funcionalidades de software concluídas nesta fase.
 
-Não iniciar implementação, criação de componentes, instalação de dependências, frontend, backend, base de dados, CI/CD ou autenticação.
+Não iniciar implementação, criação de componentes, instalação de dependências,
+frontend, backend, base de dados, CI/CD ou autenticação sem autorização para a
+fase de implementação.
