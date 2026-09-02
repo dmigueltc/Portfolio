@@ -29,25 +29,20 @@ Antes de qualquer funcionalidade significativa:
 4. Verificar `docs/04-architecture/decisions/decision-log.md`.
 5. Consultar requisitos em `docs/02-requirements/`.
 6. Consultar arquitetura e design relevantes.
-7. Consultar `docs/07-development/development-foundation-v1.md`.
-8. Confirmar se a decisão está aprovada, recomendada, pendente ou futura.
-9. Não implementar decisões pendentes.
-10. Atualizar documentação se a implementação alterar alguma decisão.
+7. Confirmar se a decisão está aprovada, pendente ou futura.
+8. Não implementar decisões pendentes.
+9. Atualizar documentação se a implementação alterar alguma decisão.
 
 ## Regras atuais
 
-- Não programar nesta fase.
-- Não criar componentes.
-- Não instalar pacotes.
-- Não criar frontend.
-- Não criar backend.
-- Não criar base de dados.
-- Não criar CI/CD.
-- Não criar conteúdo fictício.
-- Django Templates, JavaScript mínimo e Django Admin são recomendações para
-  a V1 descritas na Foundation, não decisões irrevogáveis.
+- A implementação autorizada nesta fase limita-se à Development Foundation V1.
+- Não criar o portfólio final, componentes visuais finais ou conteúdo fictício.
+- Não configurar deployment, hosting, PostgreSQL ou serviços externos sem decisão.
+- Não criar CI/CD ou funcionalidades avançadas sem necessidade documentada.
 - Não assumir PostgreSQL como decisão final.
 - Não depender do Instagram para funcionamento do site.
+
+Consultar `development-foundation-v1.md` para o scope técnico desta fase.
 
 ## Responsabilidade dos agentes
 

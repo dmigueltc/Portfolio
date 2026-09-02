@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% translate "Foundation check" %}{% endblock %}
+
+{% block content %}
+<section aria-labelledby="foundation-title">
+  <h1 id="foundation-title">{% translate "Development Foundation V1" %}</h1>
+  <p>{% translate "A base Django está a responder corretamente." %}</p>
+</section>
+{% endblock %}

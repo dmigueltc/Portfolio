@@ -2,7 +2,9 @@
 
 Este repositório é a fonte central de verdade do projeto oficial do portfólio pessoal de Miguel Cardoso.
 
-O projeto encontra-se em fase de levantamento e planeamento. Ainda não existe aplicação implementada, frontend, backend, base de dados, sistema de autenticação, componentes ou funcionalidades em produção.
+O projeto encontra-se na implementação inicial da Development Foundation V1.
+O portfólio final, o conteúdo definitivo e o deployment ainda não foram
+implementados.
 
 ## Conceito
 
@@ -86,10 +88,37 @@ A arquitetura deverá permitir tradução organizada sem duplicar a aplicação.
 - `docs/03-design/design-principles.md`: princípios de design.
 - `docs/04-architecture/information-architecture.md`: arquitetura da informação.
 - `docs/04-architecture/decisions/decision-log.md`: decisões registadas.
-- `docs/07-development/ai-development-guide.md`: guia para desenvolvimento assistido por IA.
+- `docs/07-development/development-foundation-v1.md`: especificação da base
+  técnica V1.
+- `docs/07-development/ai-development-guide.md`: guia para desenvolvimento
+  assistido por IA.
 
 ## Estado atual
 
-FASE 1 — Levantamento e Planeamento.
+FASE 5 — Development Foundation V1.
 
-Próximo passo: fechar sitemap/arquitetura da informação, consolidar conteúdo das páginas e transformar decisões aprovadas em requisitos formais.
+Próximo passo: validar a base técnica e, posteriormente, implementar páginas
+com conteúdo real e aprovado.
+
+## Execução local da Foundation
+
+Na raiz do repositório, configure uma secret local e inicie o servidor:
+
+```powershell
+$env:DJANGO_SECRET_KEY="replace-with-a-local-secret"
+$env:DJANGO_DEBUG="True"
+$env:DJANGO_ALLOWED_HOSTS="localhost,127.0.0.1"
+python -m pip install -r requirements/development.txt
+python manage.py runserver
+```
+
+Validações disponíveis:
+
+```powershell
+python manage.py check
+python manage.py test
+```
+
+Não usar valores de exemplo em produção. A configuração de produção deve
+fornecer `DJANGO_SECRET_KEY`, `DJANGO_DEBUG=False` e hosts explícitos através
+do ambiente.

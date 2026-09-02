@@ -6,11 +6,11 @@
 
 ## Fase
 
-FASE 5 — Development Foundation V1 (especificação documental)
+FASE 5 — Development Foundation V1
 
 ## Estado
 
-Especificação da Development Foundation V1 concluída; implementação ainda não iniciada.
+Implementação inicial da base técnica em progresso.
 
 ## Concluído
 
@@ -23,23 +23,21 @@ Especificação da Development Foundation V1 concluída; implementação ainda n
 - Áreas conceptuais iniciais definidas: Tecnologia, Fotografia e Fitness.
 - Estrutura conceptual da Home definida.
 - Direção visual definida como minimalista pessoal/criativa.
-- Arquitetura técnica V1 documentada.
-- Development Foundation V1 especificada para implementação futura.
+- Development Foundation V1 documentada.
 
 ## Em progresso
 
-- Validação humana da Development Foundation V1.
-- Decisões técnicas pendentes da implementação.
+- Validação da base Django, templates, static, i18n e testes.
+- Decisões técnicas ainda pendentes para produção.
 
 ## Próximo passo
 
-- Aprovar as decisões pendentes e iniciar a implementação da base técnica,
-  seguindo `docs/07-development/development-foundation-v1.md`.
+- Validar esta Foundation e preparar a implementação das páginas apenas numa
+  fase posterior.
 
 ## Nota
 
 Não existem funcionalidades de software concluídas nesta fase.
 
-Não iniciar implementação, criação de componentes, instalação de dependências,
-frontend, backend, base de dados, CI/CD ou autenticação sem autorização para a
-fase de implementação.
+Não implementar o portfólio final, conteúdo fictício, deployment, integrações,
+autenticação completa ou infraestrutura complexa nesta fase.
