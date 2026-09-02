@@ -35,17 +35,14 @@ Antes de qualquer funcionalidade significativa:
 
 ## Regras atuais
 
-- Não programar nesta fase.
-- Não criar componentes.
-- Não instalar pacotes.
-- Não criar frontend.
-- Não criar backend.
-- Não criar base de dados.
-- Não criar CI/CD.
-- Não criar conteúdo fictício.
-- Não assumir Django como decisão final.
+- A implementação autorizada nesta fase limita-se à Development Foundation V1.
+- Não criar o portfólio final, componentes visuais finais ou conteúdo fictício.
+- Não configurar deployment, hosting, PostgreSQL ou serviços externos sem decisão.
+- Não criar CI/CD ou funcionalidades avançadas sem necessidade documentada.
 - Não assumir PostgreSQL como decisão final.
 - Não depender do Instagram para funcionamento do site.
+
+Consultar `development-foundation-v1.md` para o scope técnico desta fase.
 
 ## Responsabilidade dos agentes
 

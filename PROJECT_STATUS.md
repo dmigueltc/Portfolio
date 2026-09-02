@@ -6,11 +6,11 @@
 
 ## Fase
 
-FASE 1 — Levantamento e Planeamento
+FASE 5 — Development Foundation V1
 
 ## Estado
 
-Planeamento mestre em atualização
+Implementação inicial da base técnica em progresso.
 
 ## Concluído
 
@@ -23,21 +23,21 @@ Planeamento mestre em atualização
 - Áreas conceptuais iniciais definidas: Tecnologia, Fotografia e Fitness.
 - Estrutura conceptual da Home definida.
 - Direção visual definida como minimalista pessoal/criativa.
+- Development Foundation V1 documentada.
 
 ## Em progresso
 
-- Consolidação dos requisitos funcionais e não funcionais.
-- Fecho da arquitetura da informação.
-- Definição do conteúdo das páginas.
-- Definição da arquitetura técnica final.
-- Definição da estratégia de gestão de conteúdo.
+- Validação da base Django, templates, static, i18n e testes.
+- Decisões técnicas ainda pendentes para produção.
 
 ## Próximo passo
 
-- Fechar sitemap/arquitetura da informação e consolidar os requisitos aprovados a partir das decisões documentadas.
+- Validar esta Foundation e preparar a implementação das páginas apenas numa
+  fase posterior.
 
 ## Nota
 
 Não existem funcionalidades de software concluídas nesta fase.
 
-Não iniciar implementação, criação de componentes, instalação de dependências, frontend, backend, base de dados, CI/CD ou autenticação.
+Não implementar o portfólio final, conteúdo fictício, deployment, integrações,
+autenticação completa ou infraestrutura complexa nesta fase.

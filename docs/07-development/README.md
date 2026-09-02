@@ -1,11 +1,12 @@
 # Desenvolvimento
 
-Documentação futura de desenvolvimento.
+Documentação de desenvolvimento do projeto.
 
-Ainda não existe aplicação, setup técnico, dependências instaladas ou comandos de execução.
+Documentos principais:
 
-Documento principal para continuidade com IA:
+- `development-foundation-v1.md` — especificação da base técnica V1.
+- `ai-development-guide.md` — regras para desenvolvimento assistido por IA.
 
-- `ai-development-guide.md`
-
-A implementação só deverá começar depois de fechados requisitos, UX/UI, arquitetura técnica, stack final, segurança, testes e deployment.
+A implementação da Foundation V1 está a ser preparada na branch
+`agents/development-foundation-v1`. O portfólio final e o conteúdo definitivo
+continuam fora do scope desta fase.

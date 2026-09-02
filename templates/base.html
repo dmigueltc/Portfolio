@@ -1,0 +1,15 @@
+{% load static i18n %}
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE|default:'pt-pt' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% translate "Development Foundation V1" %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  </head>
+  <body>
+    <main id="main-content">
+      {% block content %}{% endblock %}
+    </main>
+  </body>
+</html>
