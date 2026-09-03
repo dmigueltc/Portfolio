@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}Miguel Cardoso — {% translate "Portfólio profissional + hub pessoal" %}{% endblock %}
+
+{% block content %}
+<section class="hero container" aria-labelledby="hero-name">
+  <span class="hero__eyebrow">{% translate "Portfólio profissional + hub pessoal" %}</span>
+
+  <h1 id="hero-name" class="hero__name">Miguel Cardoso</h1>
+
+  <p class="hero__statement">
+    {% translate "Sou estudante de Engenharia Informática, interessado em desenvolvimento, tecnologia e criação de conteúdo." %}
+  </p>
+
+  <ul class="hero__areas" aria-label="{% translate 'Áreas principais' %}">
+    <li>{% translate "Tecnologia" %}</li>
+    <li>{% translate "Fotografia" %}</li>
+    <li>{% translate "Fitness" %}</li>
+  </ul>
+
+  {% comment %}
+  O CTA "Explore" ainda não tem destino funcional — a secção Explora,
+  Sobre mim, Projetos em destaque, Fotografia/criação e Contacto ficam
+  para incrementos seguintes, quando existir conteúdo real aprovado
+  (ver PROJECT_STATUS.md e sitemap-v1.md). Por isso não é um <a href>:
+  fica presente visualmente, sem fingir que já leva a algum lado.
+  {% endcomment %}
+  <span class="button button--primary">
+    {% translate "Explore" %} ↓
+  </span>
+</section>
+{% endblock %}

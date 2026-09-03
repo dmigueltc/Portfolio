@@ -6,5 +6,6 @@ from . import views
 app_name = "pages"
 
 urlpatterns = [
-    path("", views.foundation_check, name="foundation-check"),
+    path("", views.home, name="home"),
+    path("foundation-check/", views.foundation_check, name="foundation-check"),
 ]

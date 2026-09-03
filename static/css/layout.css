@@ -1,0 +1,198 @@
+/*
+ * Layout — Portfólio Miguel Cardoso
+ * Mobile-first, conforme docs/03-design/responsive-strategy.md
+ * Breakpoints conceptuais: mobile 0–767px, tablet 768–1023px, desktop 1024px+
+ */
+
+.container {
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+}
+
+/* Breakpoint "tablet" — mesmo valor de --breakpoint-tablet em
+   tokens.css (48rem / 768px). CSS não permite ler custom properties
+   dentro de @media; ver nota em tokens.css antes de alterar aqui. */
+@media (min-width: 48rem) {
+  .container {
+    padding-inline: var(--space-2xl);
+  }
+}
+
+/* -------------------- Header / Navegação -------------------- */
+
+.site-header {
+  border-bottom: var(--border-width) solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  padding-block: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.site-header__brand {
+  display: inline-block;
+  font-weight: 600;
+  font-size: var(--font-size-h3);
+  color: var(--color-text);
+  text-decoration: none;
+  /* Área de toque adequada (responsive-strategy.md §11) sem alterar a
+     posição visual do texto face ao container: a margin negativa
+     compensa o padding adicionado. */
+  padding-block: var(--space-md);
+  margin-block: calc(var(--space-md) * -1);
+}
+
+.site-header__brand:hover {
+  color: var(--color-accent);
+}
+
+/* Navegação principal — funciona sem hover, sem JS, empilha em mobile */
+.site-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm) var(--space-lg);
+}
+
+.site-nav__link,
+.site-nav__item--pending {
+  display: inline-block;
+  font-size: var(--font-size-small);
+  letter-spacing: 0.02em;
+  /* Mesma área de toque em todos os itens (funcionais e pendentes),
+     para o alinhamento vertical da lista se manter consistente. */
+  padding: var(--space-md) var(--space-sm);
+}
+
+.site-nav__link {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.site-nav__link:hover,
+.site-nav__link[aria-current="page"] {
+  color: var(--color-accent);
+}
+
+/* Itens de navegação ainda sem página/link de destino (áreas futuras
+   deste incremento). Visíveis, mas não interativos nem focáveis —
+   evita a falsa promessa de um link que não leva a lado nenhum. */
+.site-nav__item--pending {
+  color: var(--color-text-muted);
+  cursor: default;
+}
+
+/* -------------------- Hero -------------------- */
+
+.hero {
+  padding-block: var(--space-4xl) var(--space-3xl);
+}
+
+.hero__eyebrow {
+  display: block;
+  font-size: var(--font-size-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.hero__name {
+  font-size: var(--font-size-display);
+  margin-bottom: var(--space-lg);
+}
+
+.hero__statement {
+  font-size: var(--font-size-h3);
+  font-weight: 400;
+  color: var(--color-text-muted);
+  max-width: 42rem;
+  margin-bottom: var(--space-xl);
+}
+
+.hero__areas {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-lg);
+  padding: 0;
+  margin: 0 0 var(--space-2xl) 0;
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+}
+
+.hero__areas li {
+  position: relative;
+}
+
+.hero__areas li:not(:last-child)::after {
+  content: "·";
+  margin-left: var(--space-lg);
+  color: var(--color-border);
+}
+
+/* CTA "Explore" */
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-small);
+  font-weight: 600;
+  text-decoration: none;
+  border: var(--border-width) solid transparent;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.button--primary {
+  background: var(--color-accent);
+  color: var(--color-surface);
+}
+
+.button--primary:hover {
+  background: var(--color-text);
+  color: var(--color-surface);
+}
+
+/* Breakpoint "desktop" — mesmo valor de --breakpoint-desktop em
+   tokens.css (64rem / 1024px). Ver nota em tokens.css antes de alterar. */
+@media (min-width: 64rem) {
+  .hero {
+    padding-block: var(--space-5xl) var(--space-4xl);
+  }
+}
+
+/* -------------------- Footer -------------------- */
+
+.site-footer {
+  border-top: var(--border-width) solid var(--color-border);
+  background: var(--color-surface);
+  margin-top: var(--space-4xl);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  padding-block: var(--space-xl);
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+}
+
+.site-footer__note {
+  margin: 0;
+  color: var(--color-text-muted);
+}

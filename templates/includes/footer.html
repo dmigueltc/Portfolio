@@ -1,0 +1,13 @@
+{% load i18n %}
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <p class="site-footer__note">© {% now "Y" %} Miguel Cardoso</p>
+    {% comment %}
+    Redes sociais e canais de contacto ainda não estão definidos
+    (ver decision-log.md, PEND-011) — não inventar ligações aqui.
+    {% endcomment %}
+    <p class="site-footer__note">
+      {% translate "Português (Portugal)" %}
+    </p>
+  </div>
+</footer>

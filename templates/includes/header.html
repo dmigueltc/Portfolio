@@ -1,0 +1,41 @@
+{% load i18n %}
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href="{% url 'pages:home' %}">Miguel Cardoso</a>
+
+    <nav class="site-nav" aria-label="{% translate 'Navegação principal' %}">
+      <ul class="site-nav__list">
+        <li>
+          <a class="site-nav__link" href="{% url 'pages:home' %}" aria-current="page">
+            {% comment %}
+            Texto fixo, não {% translate %}: a msgid "Home" coincide com
+            uma string já traduzida internamente pelo próprio Django
+            (ex.: admin), o que a fazia mudar para "Início" por acidente
+            de catálogo, não por decisão nossa. "Início" continua a ser
+            a escolha certa para PT-PT — fica aqui explícita e sob
+            controlo do projeto. Quando o seletor de idioma EN/FR for
+            implementado, usar {% templatetag openblock %} translate
+            "Home" context "navegação principal" {% templatetag closeblock %}
+            com um catálogo próprio do projeto (não vazio, ao contrário
+            do atual locale/), para não voltar a depender do catálogo
+            interno do Django.
+            {% endcomment %}
+            Início
+          </a>
+        </li>
+        {% comment %}
+        As áreas abaixo ainda não têm página/secção de destino nesta
+        fase (primeiro incremento visual da Home). Ficam visíveis na
+        navegação para comunicar a estrutura do site, mas não são
+        interativas para não prometer um link que não existe ainda.
+        {% endcomment %}
+        <li><span class="site-nav__item--pending">{% translate "Sobre" %}</span></li>
+        <li><span class="site-nav__item--pending">{% translate "Tecnologia" %}</span></li>
+        <li><span class="site-nav__item--pending">{% translate "Fotografia" %}</span></li>
+        <li><span class="site-nav__item--pending">{% translate "Fitness" %}</span></li>
+        <li><span class="site-nav__item--pending">{% translate "Projetos" %}</span></li>
+        <li><span class="site-nav__item--pending">{% translate "Contacto" %}</span></li>
+      </ul>
+    </nav>
+  </div>
+</header>

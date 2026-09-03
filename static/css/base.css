@@ -1,17 +1,111 @@
+/*
+ * Base — reset mínimo, tipografia e acessibilidade
+ * Portfólio Miguel Cardoso
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root {
   color-scheme: light;
-  font-family: system-ui, sans-serif;
-  line-height: 1.5;
 }
 
 body {
   margin: 0;
-  background: #f7f7f5;
-  color: #202020;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  background: var(--color-background);
+  color: var(--color-text);
 }
 
-main {
-  max-width: 60rem;
-  margin: 0 auto;
-  padding: 3rem 1.25rem;
+h1, h2, h3, h4 {
+  margin: 0 0 var(--space-lg) 0;
+  line-height: var(--line-height-heading);
+  font-weight: 600;
+}
+
+h1 { font-size: var(--font-size-h1); }
+h2 { font-size: var(--font-size-h2); }
+h3 { font-size: var(--font-size-h3); }
+
+p {
+  margin: 0 0 var(--space-lg) 0;
+  color: var(--color-text);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  color: var(--color-text);
+}
+
+/* Foco sempre visível — navegação por teclado (NFR-003) */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Reduz movimento quando pedido pelo utilizador */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Utilitário para conteúdo apenas para leitores de ecrã (nunca visível) */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip-link: fica fora do ecrã por omissão, mas TORNA-SE visível ao
+   receber foco por teclado — ao contrário de .visually-hidden, que
+   nunca deve aparecer. Não usar .visually-hidden aqui de propósito. */
+.skip-link {
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  transform: translateY(-150%);
+  z-index: 100;
+  background: var(--color-surface);
+  color: var(--color-text);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-sm);
+  border: var(--border-width) solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--transition-fast);
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }

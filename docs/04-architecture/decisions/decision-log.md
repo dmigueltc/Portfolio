@@ -147,6 +147,28 @@ Instagram será uma origem principal de tráfego, mas o site não deve depender 
 Consequência:
 Integração inicial deve ser simples ou limitada a ligações, salvo decisão futura.
 
+### DEC-014 — Rotas da Home e da verificação da Foundation
+
+Estado:
+Aprovada (primeiro incremento visual da Home).
+
+Decisão:
+A partir do primeiro incremento visual da Home, a rota "/" passa a servir a página Home (`apps/pages/views.home`). A página técnica de verificação da Foundation, que antes ocupava "/", move-se para "/foundation-check/" e mantém a mesma view/template, sem perda de funcionalidade.
+
+Consequência:
+Qualquer ligação ou teste que dependesse da verificação da Foundation estar em "/" deve passar a usar "/foundation-check/". O nome da rota Django (`pages:foundation-check`) não mudou.
+
+### DEC-015 — Label "Home" na navegação (PT-PT)
+
+Estado:
+Aprovada (primeiro incremento visual da Home).
+
+Decisão:
+O primeiro item de navegação usa o texto fixo "Início" em vez de uma tradução automática da string "Home". Esta é uma escolha explícita: a msgid "Home" coincide com uma string já traduzida internamente por catálogos do próprio Django, o que produzia "Início" por acidente de catálogo, não por decisão do projeto. Mantém-se "Início" como texto porque é a tradução correta para PT-PT, mas passa a estar sob controlo direto do projeto.
+
+Consequência:
+Quando o seletor de idioma EN/FR for implementado, esta label deve passar a usar uma string com `context` próprio (ex.: `{% translate "Home" context "navegação principal" %}`) com um catálogo do projeto em `locale/` — em vez de depender do catálogo interno do Django, que pode mudar entre versões.
+
 ## Recomendações para V1
 
 - Django (recomendado)

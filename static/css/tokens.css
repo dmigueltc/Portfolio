@@ -1,0 +1,87 @@
+/*
+ * Tokens de design — Portfólio Miguel Cardoso
+ *
+ * Valores conforme docs/03-design/design-system-v1.md.
+ * A paleta e a tipografia são "recomendação V1", não decisão final
+ * (ver decision-log.md, PEND-001). Estes tokens existem precisamente
+ * para permitir trocar paleta/tipografia/tema no futuro sem procurar
+ * valores espalhados pelo código.
+ */
+
+:root {
+  /* Cor — paleta neutra, accent terroso (recomendação V1) */
+  --color-background: #F5F1EC;
+  --color-surface: #FAF7F4;
+  --color-surface-strong: #EFE7E0;
+  --color-text: #1B1A18;
+  --color-text-muted: #5F5A54;
+  --color-border: #D8D0C8;
+  --color-accent: #A9754F;
+  --color-accent-soft: #D9B998;
+  --color-success: #3A5A48;
+  --color-warning: #8E6F3A;
+  --color-error: #7C4039;
+
+  /* Tipografia */
+  --font-family-base: "Inter", "Manrope", system-ui, -apple-system, sans-serif;
+
+  /* Hierarquia fluida: os limites min/max de cada clamp() correspondem
+     exatamente ao intervalo definido em design-system-v1.md §5. A curva
+     entre esses limites é interpolada entre viewport 480px e 1280px —
+     apenas a transição é uma escolha de implementação; os extremos não. */
+  --font-size-display: clamp(3rem, 2.4rem + 2vw, 4rem);       /* 48–64px */
+  --font-size-h1: clamp(2rem, 1.7rem + 1vw, 2.5rem);           /* 32–40px */
+  --font-size-h2: clamp(1.5rem, 1.2rem + 1vw, 2rem);           /* 24–32px */
+  --font-size-h3: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);      /* 20–24px */
+  --font-size-body: 1rem;                                      /* 16px */
+  --font-size-small: 0.875rem;                                 /* 14px */
+  --font-size-label: 0.6875rem;                                /* 11px */
+
+  --line-height-heading: 1.15;
+  --line-height-body: 1.6;
+
+  /* Espaçamento */
+  --space-xs: 0.25rem;   /* 4px */
+  --space-sm: 0.5rem;    /* 8px */
+  --space-md: 0.75rem;   /* 12px */
+  --space-lg: 1rem;      /* 16px */
+  --space-xl: 1.5rem;    /* 24px */
+  --space-2xl: 2rem;     /* 32px */
+  --space-3xl: 3rem;     /* 48px */
+  --space-4xl: 4rem;     /* 64px */
+  --space-5xl: 6rem;     /* 96px */
+
+  /* Layout */
+  --content-max-width: 75rem; /* 1200px */
+  --gutter: 1.5rem;           /* 24px, reduz em mobile via layout.css */
+
+  /* Radius, borders, sombras */
+  --radius-sm: 0.5rem;   /* 8px */
+  --radius-md: 0.75rem;  /* 12px */
+  --radius-lg: 1.125rem; /* 18px */
+  --border-width: 1px;
+  --shadow-soft: 0 8px 24px rgba(17, 17, 17, 0.05);
+
+  /* Transições — discretas e rápidas, conforme design-principles.md */
+  --transition-fast: 120ms ease;
+  --transition-base: 200ms ease;
+
+  /* Breakpoints conceptuais, conforme responsive-strategy.md §4:
+       Mobile: 0–767px | Tablet: 768–1023px | Desktop: 1024px+
+     Ficam aqui como REFERÊNCIA — CSS não permite usar custom properties
+     dentro da condição de uma @media query, por isso os mesmos valores
+     (48rem / 64rem) têm de estar escritos diretamente em cada @media
+     em layout.css. Não é possível centralizar tecnicamente isto sem
+     uma ferramenta de build (Sass, PostCSS), o que não se justifica
+     nesta fase. Se este valor mudar, atualizar também os dois pontos
+     assinalados em layout.css. */
+  --breakpoint-tablet: 48rem;   /* 768px */
+  --breakpoint-desktop: 64rem;  /* 1024px */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0ms;
+    --transition-base: 0ms;
+  }
+}
