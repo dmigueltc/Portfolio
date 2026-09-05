@@ -31,7 +31,10 @@ class HomePageTests(TestCase):
     def test_home_page_has_explore_cta(self):
         response = self.client.get(reverse("pages:home"))
 
+        # O CTA agora tem destino real: a secção Explora nesta mesma
+        # página (deixou de ser um elemento inerte sem href).
         self.assertContains(response, "Explore")
+        self.assertContains(response, '<a class="button button--primary" href="#explora">')
 
     def test_home_page_includes_header_and_footer(self):
         response = self.client.get(reverse("pages:home"))
@@ -77,6 +80,60 @@ class HomePageTests(TestCase):
         for area in pending_areas:
             pattern = re.compile(rf"<a[^>]*>\s*{re.escape(area)}\s*</a>")
             self.assertNotRegex(content, pattern)
+
+
+class ExploraSectionTests(TestCase):
+    def test_explora_section_exists(self):
+        response = self.client.get(reverse("pages:home"))
+        content = response.content.decode()
+
+        self.assertContains(response, 'id="explora"')
+        self.assertContains(response, "Explora")
+        # Título da secção é um h2 — mantém a hierarquia correta a
+        # seguir ao h1 da Hero (Miguel Cardoso).
+        self.assertRegex(content, r"<h2[^>]*>\s*Explora\s*</h2>")
+
+    def test_explora_lists_the_three_areas(self):
+        response = self.client.get(reverse("pages:home"))
+        content = response.content.decode()
+
+        for area in ("Tecnologia", "Fotografia", "Fitness"):
+            self.assertRegex(content, rf"<h3[^>]*>\s*{area}\s*</h3>")
+
+    def test_explora_gives_more_visual_weight_to_technology_and_photography(self):
+        response = self.client.get(reverse("pages:home"))
+        content = response.content.decode()
+
+        # Tecnologia e Fotografia usam a variante "primary"; Fitness usa
+        # "secondary" — a hierarquia visual pedida (FR-003 / sitemap-v1).
+        self.assertEqual(content.count("area-card area-card--primary"), 2)
+        self.assertEqual(content.count("area-card area-card--secondary"), 1)
+
+    def test_explora_areas_do_not_link_to_fictitious_urls(self):
+        response = self.client.get(reverse("pages:home"))
+        content = response.content.decode()
+
+        # Nenhuma das três áreas tem página própria ainda — os cartões
+        # são <article>, não <a>, e não podem apontar para nenhuma URL.
+        for area in ("Tecnologia", "Fotografia", "Fitness"):
+            pattern = re.compile(rf"<a[^>]*>\s*{area}\s*</a>")
+            self.assertNotRegex(content, pattern)
+
+    def test_explora_areas_show_pending_status(self):
+        response = self.client.get(reverse("pages:home"))
+        content = response.content.decode()
+
+        # Mesmo padrão de "estados vazios" já usado na navegação:
+        # comunicar honestamente que a área ainda não é uma página.
+        self.assertEqual(
+            content.count('<span class="area-card__status">Em preparação</span>'),
+            3,
+        )
+
+    def test_explore_cta_links_to_explora_section(self):
+        response = self.client.get(reverse("pages:home"))
+
+        self.assertContains(response, 'href="#explora"')
 
 
 class FoundationCheckTests(TestCase):

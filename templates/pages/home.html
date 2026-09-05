@@ -20,14 +20,63 @@
   </ul>
 
   {% comment %}
-  O CTA "Explore" ainda não tem destino funcional — a secção Explora,
-  Sobre mim, Projetos em destaque, Fotografia/criação e Contacto ficam
-  para incrementos seguintes, quando existir conteúdo real aprovado
-  (ver PROJECT_STATUS.md e sitemap-v1.md). Por isso não é um <a href>:
-  fica presente visualmente, sem fingir que já leva a algum lado.
+  O CTA "Explore" já tem destino real: a secção Explora, implementada
+  neste incremento. Deixa de ser um <span> inerte (usado enquanto a
+  secção não existia) e volta a ser um link funcional dentro da
+  própria página.
   {% endcomment %}
-  <span class="button button--primary">
+  <a class="button button--primary" href="#explora">
     {% translate "Explore" %} ↓
-  </span>
+  </a>
+</section>
+
+<section id="explora" class="explora container" aria-labelledby="explora-title">
+  <header class="section-heading">
+    {% comment %}
+    Texto do eyebrow citado tal como aprovado em
+    information-architecture.md ("Conceito: 'O que faço, gosto e
+    crio.'") — não é conteúdo novo/inventado.
+    {% endcomment %}
+    <span class="section-heading__eyebrow">{% translate "O que faço, gosto e crio" %}</span>
+    <h2 id="explora-title" class="section-heading__title">{% translate "Explora" %}</h2>
+  </header>
+
+  {% comment %}
+  Nenhuma das três áreas tem página própria ainda (ver
+  information-architecture.md: "Pendente: Conteúdo e ligações finais
+  de cada área"). Por isso cada cartão é um <article>, não um <a> —
+  mesma lógica já aplicada à navegação: visível, mas sem fingir um
+  destino que ainda não existe. A etiqueta "Em preparação" segue o
+  padrão de estados vazios de ux-specification-v1.md §13.
+  {% endcomment %}
+  <ul class="explora__grid">
+    <li>
+      <article class="area-card area-card--primary" aria-labelledby="area-tecnologia-title">
+        <h3 id="area-tecnologia-title" class="area-card__title">{% translate "Tecnologia" %}</h3>
+        <p class="area-card__description">
+          {% translate "Desenvolvimento, programação e experiências à volta de software e hardware." %}
+        </p>
+        <span class="area-card__status">{% translate "Em preparação" %}</span>
+      </article>
+    </li>
+    <li>
+      <article class="area-card area-card--primary" aria-labelledby="area-fotografia-title">
+        <h3 id="area-fotografia-title" class="area-card__title">{% translate "Fotografia" %}</h3>
+        <p class="area-card__description">
+          {% translate "Fotografia, edição e criação visual — imagem e vídeo." %}
+        </p>
+        <span class="area-card__status">{% translate "Em preparação" %}</span>
+      </article>
+    </li>
+    <li>
+      <article class="area-card area-card--secondary" aria-labelledby="area-fitness-title">
+        <h3 id="area-fitness-title" class="area-card__title">{% translate "Fitness" %}</h3>
+        <p class="area-card__description">
+          {% translate "Interesse pessoal por atividade física — presença discreta, em segundo plano." %}
+        </p>
+        <span class="area-card__status">{% translate "Em preparação" %}</span>
+      </article>
+    </li>
+  </ul>
 </section>
 {% endblock %}

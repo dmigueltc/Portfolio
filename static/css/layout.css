@@ -173,6 +173,117 @@
   }
 }
 
+/* -------------------- Cabeçalho de secção -------------------- */
+/* Reutilizável por futuras secções da Home (Sobre mim, Projetos em
+   destaque, Fotografia/criação, Contacto) — mesmo padrão da Hero
+   (eyebrow + título), mas como bloco isolado em vez de depender da
+   Hero, para não obrigar a tocar no código já aprovado da Hero. */
+
+.section-heading {
+  margin-bottom: var(--space-2xl);
+}
+
+.section-heading__eyebrow {
+  display: block;
+  font-size: var(--font-size-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.section-heading__title {
+  margin: 0;
+  font-size: var(--font-size-h1);
+}
+
+/* -------------------- Explora -------------------- */
+
+.explora {
+  padding-block: var(--space-4xl);
+}
+
+/* Grid extensível: repeat(auto-fit, minmax(...)) preenche 1 coluna em
+   mobile e várias em ecrãs largos, consoante o espaço disponível — uma
+   futura área (ex.: Jogos) só precisa de um novo <li>, sem alterar a
+   grid. align-items:stretch (comportamento nativo do CSS Grid, não é
+   uma altura fixa) faz com que os itens colocados na MESMA linha da
+   grid fiquem com a mesma altura — em desktop, os três cartões ficam
+   alinhados no topo e na base. Em mobile, com 1 coluna, cada cartão
+   ocupa a sua própria linha, pelo que continua com altura natural. */
+.explora__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--card-grid-min-width), 1fr));
+  align-items: stretch;
+  gap: var(--space-xl);
+}
+
+/* Area Card (design-system-v1.md §9): identidade própria, suporta
+   apenas texto (sem imagem obrigatória). O <li> (item da grid) é
+   esticado pelo align-items:stretch acima; height:100% propaga essa
+   altura ao cartão em si. A hierarquia entre áreas continua a ser
+   dada pela densidade visual (padding, superfície, tamanho do título
+   em --primary/--secondary), não pela altura total do cartão — por
+   isso a hierarquia mantém-se mesmo com os três à mesma altura. */
+.area-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  height: 100%;
+  padding: var(--space-lg);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.area-card__title {
+  margin: 0;
+  font-size: var(--font-size-h3);
+}
+
+.area-card__description {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+/* Estado da área — nenhuma tem página funcional ainda nesta fase
+   (ver decision-log.md, "Conteúdo e ligações finais de cada área"
+   continua pendente em information-architecture.md). Mesmo padrão
+   dos "estados vazios" já definido em ux-specification-v1.md §13.
+   margin-top:auto ancora o estado à base do cartão, absorvendo o
+   espaço que sobra quando a altura é esticada por causa do cartão
+   mais alto na mesma linha — mantém o conteúdo equilibrado em vez de
+   deixar um vazio depois da descrição. */
+.area-card__status {
+  margin-top: auto;
+  padding-top: var(--space-xs);
+  font-size: var(--font-size-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* Tecnologia e Fotografia: maior peso visual — superfície preenchida,
+   mais espaço interno, sombra suave, título maior. */
+.area-card--primary {
+  padding: var(--space-2xl);
+  background: var(--color-surface-strong);
+  box-shadow: var(--shadow-soft);
+}
+
+.area-card--primary .area-card__title {
+  font-size: var(--font-size-h2);
+}
+
+/* Fitness: presente, mas claramente secundária — menos espaço interno,
+   sem superfície preenchida, apenas o contorno discreto já definido
+   em .area-card. */
+.area-card--secondary {
+  padding: var(--space-lg);
+}
+
 /* -------------------- Footer -------------------- */
 
 .site-footer {

@@ -37,3 +37,24 @@ Todas as alteracoes relevantes deste projeto devem ser documentadas neste fichei
   escolha explícita e documentada da label "Início" na navegação,
   reforço do teste de navegação pendente, e separação do CTA "Explore"
   de qualquer destino ainda não implementado.
+
+## 0.2.2
+
+- Secção Explora na Home: grid extensível (`repeat(auto-fit, minmax(...))`)
+  com cartões para Tecnologia, Fotografia (maior peso visual — variante
+  "primary") e Fitness (peso secundário — variante "secondary"),
+  conforme FR-003 e ux-specification-v1.md §5.
+- Novo token `--card-grid-min-width` em tokens.css para a largura mínima
+  de coluna da grid, reutilizável por futuras grids de cartões.
+- Cada área aparece como `<article>` com estado "Em preparação" — sem
+  página própria nem ligação funcional ainda, seguindo o mesmo padrão
+  de estados vazios já usado na navegação (ux-specification-v1.md §13).
+- CTA "Explore" da Hero passa a ter destino real (`#explora`), deixando
+  de ser um elemento inerte agora que a secção existe.
+- Testes novos para a existência da secção, as três áreas, a hierarquia
+  visual Tecnologia/Fotografia vs. Fitness, a ausência de ligações
+  fictícias e o estado "Em preparação" de cada área.
+- Ajuste visual: os três cartões da Explora ficam alinhados (mesmo topo
+  e base) quando partilham a mesma linha da grid em desktop, via
+  `align-items: stretch` (comportamento nativo do CSS Grid) — sem
+  alturas fixas. Em mobile, cada cartão mantém a sua altura natural.

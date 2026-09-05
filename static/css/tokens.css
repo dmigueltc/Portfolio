@@ -54,6 +54,11 @@
   /* Layout */
   --content-max-width: 75rem; /* 1200px */
   --gutter: 1.5rem;           /* 24px, reduz em mobile via layout.css */
+  /* Largura mínima de coluna para grids de cartões extensíveis (ex.:
+     Explora). Um único token em vez de um número isolado em layout.css,
+     para poder ser reutilizado por futuras grids semelhantes (ex.:
+     Projetos em destaque) sem duplicar o valor. */
+  --card-grid-min-width: 16rem; /* 256px */
 
   /* Radius, borders, sombras */
   --radius-sm: 0.5rem;   /* 8px */
