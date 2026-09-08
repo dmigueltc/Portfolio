@@ -81,3 +81,30 @@ Todas as alteracoes relevantes deste projeto devem ser documentadas neste fichei
 - Testes novos para a existência da secção, o conteúdo aprovado, a
   ausência de conteúdo inventado, a ausência de URLs fictícias e a
   ausência de imagem nesta fase.
+
+## 0.2.4
+
+- Secção Tecnologia na Home: introdução parafraseada da descrição de
+  FR-005, e os quatro temas exatamente como documentados em
+  sitemap-v1.md ("Tecnologia" > Conteúdo previsto) — Desenvolvimento e
+  programação, Desenvolvimento web, Hardware e computadores,
+  Otimização e troubleshooting de PC. Apresentados como texto simples,
+  não como badges/skills com percentagens.
+- Espaço reservado para projetos tecnológicos reais, com o mesmo
+  estado "Em preparação" já usado na Explora (reutiliza a classe
+  `.area-card__status`, sem duplicar a regra). Nenhum projeto,
+  tecnologia específica, empresa ou competência inventada.
+- Novo token `--prose-max-width` (42rem) em tokens.css — já havia o
+  mesmo valor isolado em `.hero__statement` e `.about__content`; os
+  três sítios passam agora a usar o token em vez de repetir o número
+  (substituição mecânica, sem alteração visual).
+- Extensão da estrutura de Home aprovada em DEC-009 (que não previa
+  secção própria de Tecnologia) — registada em DEC-016 do
+  decision-log.md.
+- Item "Tecnologia" da navegação NÃO foi alterado nesta fase — continua
+  pendente, por não ter sido pedido explicitamente (ao contrário do que
+  aconteceu com "Sobre" no incremento anterior).
+- Testes novos para a existência da secção, os temas documentados, a
+  ausência de conteúdo/tecnologias inventadas, a ausência de projetos
+  fictícios e a confirmação de que não foi criada nenhuma página
+  "/tecnologia/".

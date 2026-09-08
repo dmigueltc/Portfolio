@@ -113,4 +113,47 @@
     </div>
   </div>
 </section>
+
+<section id="tecnologia" class="tech-preview container" aria-labelledby="tecnologia-title">
+  <header class="section-heading">
+    <h2 id="tecnologia-title" class="section-heading__title">{% translate "Tecnologia" %}</h2>
+  </header>
+
+  {% comment %}
+  Conteúdo restrito ao já aprovado em FR-005 e sitemap-v1.md
+  ("Tecnologia"): a frase de introdução parafraseia a descrição da
+  FR-005 ("apresentar conteúdos relacionados com desenvolvimento,
+  tecnologia, experiências, hardware, software e projetos"); os temas
+  listados são exatamente os do "Conteúdo previsto" do sitemap (não
+  inclui a entrada "Tecnologia" da própria lista, por ser redundante
+  com o título desta secção). Nenhuma tecnologia, projeto, empresa ou
+  competência específica não documentada foi acrescentada.
+  {% endcomment %}
+  <div class="tech-preview__intro">
+    <p>
+      {% translate "A tecnologia é um dos eixos principais deste portfólio — desenvolvimento, programação e experiências com software e hardware." %}
+    </p>
+  </div>
+
+  <ul class="tech-preview__topics" aria-label="{% translate 'Temas de Tecnologia' %}">
+    <li>{% translate "Desenvolvimento e programação" %}</li>
+    <li>{% translate "Desenvolvimento web" %}</li>
+    <li>{% translate "Hardware e computadores" %}</li>
+    <li>{% translate "Otimização e troubleshooting de PC" %}</li>
+  </ul>
+
+  {% comment %}
+  Espaço preparado para projetos reais (FR-005: "A área pode, no
+  futuro, incluir... projetos"; sitemap-v1.md, Home: "Projetos em
+  destaque só devem aparecer com conteúdo real"). Sem projetos
+  fictícios — apenas o estado "Em preparação", já usado na Explora.
+  {% endcomment %}
+  <div class="tech-preview__projects">
+    <h3 class="tech-preview__projects-title">{% translate "Projetos" %}</h3>
+    <p>
+      {% translate "Os projetos tecnológicos reais vão aparecer aqui, à medida que existirem." %}
+    </p>
+    <span class="area-card__status">{% translate "Em preparação" %}</span>
+  </div>
+</section>
 {% endblock %}

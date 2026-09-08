@@ -133,8 +133,17 @@ class ExploraSectionTests(TestCase):
 
         # Mesmo padrão de "estados vazios" já usado na navegação:
         # comunicar honestamente que a área ainda não é uma página.
+        # Contagem restrita à própria secção Explora — a secção
+        # Tecnologia também reutiliza a classe area-card__status para
+        # o seu próprio estado "Em preparação" dos projetos.
+        explora_section = re.search(
+            r'<section id="explora".*?</section>', content, re.DOTALL
+        )
+        self.assertIsNotNone(explora_section)
         self.assertEqual(
-            content.count('<span class="area-card__status">Em preparação</span>'),
+            explora_section.group(0).count(
+                '<span class="area-card__status">Em preparação</span>'
+            ),
             3,
         )
 
@@ -207,6 +216,77 @@ class AboutSectionTests(TestCase):
         )
         self.assertIsNotNone(about_section)
         self.assertNotIn("<img", about_section.group(0))
+
+
+class TechnologySectionTests(TestCase):
+    def test_technology_section_exists(self):
+        response = self.client.get(reverse("pages:home"))
+        content = response.content.decode()
+
+        self.assertContains(response, 'id="tecnologia"')
+        self.assertRegex(content, r"<h2[^>]*>\s*Tecnologia\s*</h2>")
+
+    def test_technology_lists_documented_topics(self):
+        response = self.client.get(reverse("pages:home"))
+
+        # Temas exatamente como documentados em sitemap-v1.md
+        # ("Tecnologia" > Conteúdo previsto) — nenhuma tecnologia
+        # específica (linguagem, framework, ferramenta) inventada.
+        for topic in (
+            "Desenvolvimento e programação",
+            "Desenvolvimento web",
+            "Hardware e computadores",
+            "Otimização e troubleshooting de PC",
+        ):
+            self.assertContains(response, topic)
+
+    def test_technology_does_not_invent_unapproved_content(self):
+        response = self.client.get(reverse("pages:home"))
+        content = response.content.decode()
+
+        # Mesma cautela da secção Sobre mim: nada de experiência,
+        # empresas, prémios, clientes ou tecnologias específicas não
+        # documentadas (linguagens/frameworks concretos não aprovados).
+        forbidden_terms = (
+            "anos de experiência",
+            "empresa",
+            "cliente",
+            "prémio",
+            "certificado",
+            "certificação",
+            "python",
+            "javascript",
+            "react",
+        )
+        for term in forbidden_terms:
+            self.assertNotIn(
+                term,
+                content.lower(),
+                f"Conteúdo não aprovado encontrado: '{term}'.",
+            )
+
+    def test_technology_projects_area_has_no_fictitious_projects(self):
+        response = self.client.get(reverse("pages:home"))
+        content = response.content.decode()
+
+        tech_section = re.search(
+            r'<section id="tecnologia".*?</section>', content, re.DOTALL
+        )
+        self.assertIsNotNone(tech_section)
+        # Nenhum link para projeto, e o estado "Em preparação" está
+        # presente — nenhum projeto real ainda, nenhum fictício.
+        self.assertNotIn("<a ", tech_section.group(0))
+        self.assertIn(
+            '<span class="area-card__status">Em preparação</span>',
+            tech_section.group(0),
+        )
+
+    def test_technology_does_not_create_dedicated_page(self):
+        # Nesta fase não existe uma página "/tecnologia/" própria — é
+        # apenas uma secção da Home, não uma rota nova.
+        response = self.client.get(reverse("pages:home"))
+
+        self.assertNotContains(response, 'href="/tecnologia/"')
 
 
 class FoundationCheckTests(TestCase):

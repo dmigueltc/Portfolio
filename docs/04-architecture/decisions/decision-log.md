@@ -169,6 +169,17 @@ O primeiro item de navegação usa o texto fixo "Início" em vez de uma traduç�
 Consequência:
 Quando o seletor de idioma EN/FR for implementado, esta label deve passar a usar uma string com `context` próprio (ex.: `{% translate "Home" context "navegação principal" %}`) com um catálogo do projeto em `locale/` — em vez de depender do catálogo interno do Django, que pode mudar entre versões.
 
+### DEC-016 — Secção "Tecnologia" na Home (extensão de DEC-009)
+
+Estado:
+Aprovada (incremento "Tecnologia").
+
+Decisão:
+A DEC-009 definia a estrutura da Home como Hero, Explora, Sobre mim, Projetos em destaque, Fotografia/criação, Contacto e Footer — sem uma secção própria de Tecnologia (que aparecia apenas como cartão na Explora). Foi pedida e implementada uma secção "Tecnologia" adicional na Home, entre Sobre mim e Footer, com conteúdo restrito ao já aprovado em FR-005 e sitemap-v1.md ("Tecnologia"): introdução parafraseada da descrição de FR-005, os temas documentados no sitemap, e um espaço reservado (estado "Em preparação") para projetos reais futuros. Não é criada nenhuma página "/tecnologia/" dedicada — essa continua a ser uma decisão separada e pendente (ver sitemap-v1.md, "3. Tecnologia": "Conteúdo definitivo ainda está pendente").
+
+Consequência:
+A estrutura da Home passa a Hero, Explora, Sobre mim, Tecnologia, Projetos em destaque, Fotografia/criação, Contacto e Footer. Fica em aberto se outras áreas da Explora (Fotografia, Fitness) devem receber o mesmo tratamento (secção própria na Home) ou permanecer apenas como cartões — ver PEND correspondente.
+
 ## Recomendações para V1
 
 - Django (recomendado)
@@ -266,3 +277,11 @@ Decisão futura.
 
 Notas:
 Não depender de API do Instagram nesta fase.
+
+### PEND-012 — Secção própria na Home para Fotografia e Fitness
+
+Estado:
+Pendente.
+
+Notas:
+A DEC-016 deu à Tecnologia uma secção própria na Home, além do cartão na Explora. Ainda não foi decidido se Fotografia e Fitness devem receber o mesmo tratamento (secção própria) ou permanecer apenas como cartões na Explora até existirem páginas dedicadas.

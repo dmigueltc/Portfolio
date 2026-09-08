@@ -116,7 +116,7 @@
   font-size: var(--font-size-h3);
   font-weight: 400;
   color: var(--color-text-muted);
-  max-width: 42rem;
+  max-width: var(--prose-max-width);
   margin-bottom: var(--space-xl);
 }
 
@@ -310,10 +310,60 @@
   }
 }
 
-/* Mesma largura de leitura já usada em .hero__statement, para manter
-   linhas de texto confortáveis (não é um valor novo/isolado). */
+/* Largura de leitura via --prose-max-width (ver tokens.css). */
 .about__content {
-  max-width: 42rem;
+  max-width: var(--prose-max-width);
+}
+
+/* -------------------- Tecnologia -------------------- */
+
+.tech-preview {
+  padding-block: var(--space-4xl);
+}
+
+.tech-preview__intro {
+  max-width: var(--prose-max-width);
+}
+
+/* Lista de temas já documentados (sitemap-v1.md, "Tecnologia"),
+   apresentada como texto simples — não como badges/skills com
+   percentagens, para não parecer um currículo tradicional. */
+.tech-preview__topics {
+  list-style: none;
+  margin: var(--space-xl) 0 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-lg);
+  color: var(--color-text-muted);
+}
+
+.tech-preview__topics li {
+  position: relative;
+}
+
+.tech-preview__topics li:not(:last-child)::after {
+  content: "·";
+  margin-left: var(--space-lg);
+  color: var(--color-border);
+}
+
+/* Espaço reservado para projetos reais (FR-005 / sitemap-v1.md):
+   reutiliza .area-card__status, já definida para a Explora — mesmo
+   vocabulário visual de "estado", sem duplicar a regra. */
+.tech-preview__projects {
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-xl);
+  border-top: var(--border-width) solid var(--color-border);
+}
+
+.tech-preview__projects-title {
+  margin: 0 0 var(--space-sm) 0;
+  font-size: var(--font-size-h3);
+}
+
+.tech-preview__projects p {
+  max-width: var(--prose-max-width);
 }
 
 /* -------------------- Footer -------------------- */

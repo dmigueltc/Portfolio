@@ -59,6 +59,10 @@
      para poder ser reutilizado por futuras grids semelhantes (ex.:
      Projetos em destaque) sem duplicar o valor. */
   --card-grid-min-width: 16rem; /* 256px */
+  /* Largura máxima de bloco de texto corrido, para linhas legíveis.
+     Já usado em 3 sítios (Hero, Sobre mim, Tecnologia) — passa a token
+     em vez de repetir "42rem" em cada ficheiro/secção. */
+  --prose-max-width: 42rem; /* 672px */
 
   /* Radius, borders, sombras */
   --radius-sm: 0.5rem;   /* 8px */
