@@ -53,15 +53,23 @@ class HomePageTests(TestCase):
 
         self.assertContains(response, 'href="/"')
 
+    def test_navigation_sobre_link_is_functional(self):
+        response = self.client.get(reverse("pages:home"))
+
+        # "Sobre" passa a link real, apontando sempre para a Home +
+        # âncora — funciona mesmo a partir de páginas sem a secção
+        # (ex.: /foundation-check/), não apenas "#sobre" isolado.
+        self.assertContains(response, 'href="/#sobre"')
+
     def test_navigation_pending_areas_are_not_links(self):
         response = self.client.get(reverse("pages:home"))
         content = response.content.decode()
 
-        # Sobre/Tecnologia/Fotografia/Fitness/Projetos/Contacto ainda não
-        # têm página de destino nesta fase — devem aparecer como
+        # Tecnologia/Fotografia/Fitness/Projetos/Contacto ainda não têm
+        # página de destino nesta fase — devem aparecer como
         # <span class="site-nav__item--pending">, nunca como <a href="...">.
+        # "Sobre" já não está nesta lista: passou a link funcional.
         pending_areas = (
-            "Sobre",
             "Tecnologia",
             "Fotografia",
             "Fitness",
@@ -134,6 +142,71 @@ class ExploraSectionTests(TestCase):
         response = self.client.get(reverse("pages:home"))
 
         self.assertContains(response, 'href="#explora"')
+
+
+class AboutSectionTests(TestCase):
+    def test_about_section_exists(self):
+        response = self.client.get(reverse("pages:home"))
+        content = response.content.decode()
+
+        self.assertContains(response, 'id="sobre"')
+        # Título é um h2 — mesma hierarquia da Explora, sem saltar níveis.
+        self.assertRegex(content, r"<h2[^>]*>\s*Sobre mim\s*</h2>")
+
+    def test_about_uses_only_approved_base_statement(self):
+        response = self.client.get(reverse("pages:home"))
+
+        # A frase-base aprovada tem de estar presente tal como aprovada
+        # (aqui com o nome antecipado, sem alterar o resto do texto).
+        self.assertContains(
+            response,
+            "estudante de Engenharia Inform\xe1tica, interessado em "
+            "desenvolvimento, tecnologia e cria\xe7\xe3o de conte\xfado.",
+        )
+
+    def test_about_does_not_invent_unapproved_content(self):
+        response = self.client.get(reverse("pages:home"))
+        content = response.content.decode()
+
+        # Nada de experiência profissional, empresas, prémios, anos ou
+        # formação adicional inventados — nenhum destes termos deve
+        # aparecer em lado nenhum da página.
+        forbidden_terms = (
+            "anos de experiência",
+            "empresa",
+            "prémio",
+            "certificado",
+            "certificação",
+            "curso de",
+            "cliente",
+        )
+        for term in forbidden_terms:
+            self.assertNotIn(
+                term,
+                content.lower(),
+                f"Conteúdo não aprovado encontrado: '{term}'.",
+            )
+
+    def test_about_links_to_explora_not_a_fictitious_page(self):
+        response = self.client.get(reverse("pages:home"))
+        content = response.content.decode()
+
+        # A Home não cria uma página "/sobre/" nesta fase; a ligação
+        # dentro da secção aponta para a Explora já existente na mesma
+        # página, não para uma URL inventada.
+        self.assertNotContains(response, 'href="/sobre/"')
+        self.assertIn('<a href="#explora">', content)
+
+    def test_about_layout_is_ready_for_future_media_without_rendering_one(self):
+        response = self.client.get(reverse("pages:home"))
+        content = response.content.decode()
+
+        # Sem fotografia pessoal nesta fase: nenhum <img> na secção.
+        about_section = re.search(
+            r'<section id="sobre".*?</section>', content, re.DOTALL
+        )
+        self.assertIsNotNone(about_section)
+        self.assertNotIn("<img", about_section.group(0))
 
 
 class FoundationCheckTests(TestCase):

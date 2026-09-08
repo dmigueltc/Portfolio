@@ -24,12 +24,21 @@
           </a>
         </li>
         {% comment %}
-        As áreas abaixo ainda não têm página/secção de destino nesta
-        fase (primeiro incremento visual da Home). Ficam visíveis na
-        navegação para comunicar a estrutura do site, mas não são
-        interativas para não prometer um link que não existe ainda.
+        "Sobre" já tem destino real (a secção #sobre, implementada
+        neste incremento). O href inclui sempre o caminho da Home
+        ({% templatetag openblock %} url 'pages:home' {% templatetag closeblock %}#sobre),
+        não apenas "#sobre" — assim o link funciona também a partir de
+        outras páginas (ex.: /foundation-check/), que não têm essa
+        secção. As restantes áreas abaixo ainda não têm página/secção
+        de destino nesta fase. Ficam visíveis na navegação para
+        comunicar a estrutura do site, mas não são interativas para
+        não prometer um link que não existe ainda.
         {% endcomment %}
-        <li><span class="site-nav__item--pending">{% translate "Sobre" %}</span></li>
+        <li>
+          <a class="site-nav__link" href="{% url 'pages:home' %}#sobre">
+            {% translate "Sobre" %}
+          </a>
+        </li>
         <li><span class="site-nav__item--pending">{% translate "Tecnologia" %}</span></li>
         <li><span class="site-nav__item--pending">{% translate "Fotografia" %}</span></li>
         <li><span class="site-nav__item--pending">{% translate "Fitness" %}</span></li>

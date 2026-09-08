@@ -79,4 +79,38 @@
     </li>
   </ul>
 </section>
+
+<section id="sobre" class="about container" aria-labelledby="sobre-title">
+  <header class="section-heading">
+    <h2 id="sobre-title" class="section-heading__title">{% translate "Sobre mim" %}</h2>
+  </header>
+
+  {% comment %}
+  Conteúdo restrito ao que já está aprovado/documentado:
+  - 1ª frase: o texto-base aprovado ("Sou estudante de Engenharia
+    Informática, interessado em desenvolvimento, tecnologia e criação
+    de conteúdo."), apenas com o nome antecipado — sem adicionar
+    experiência, empresas, projetos, competências ou anos.
+  - 2ª frase: descreve a própria estrutura do site (Tecnologia e
+    Fotografia em destaque, Fitness secundária), já implementada na
+    secção Explora — não é uma característica pessoal inventada.
+  Sem fotografia pessoal nesta fase (ver information-architecture.md,
+  "Sobre mim": "Incluir elemento visual sem depender de fotografia
+  pessoal"). .about__layout já está preparado para receber uma futura
+  imagem em .about__media, sem reconstruir a secção — ver layout.css.
+  {% endcomment %}
+  <div class="about__layout">
+    <div class="about__content">
+      <p>
+        {% translate "Sou o Miguel Cardoso, estudante de Engenharia Informática, interessado em desenvolvimento, tecnologia e criação de conteúdo." %}
+      </p>
+      <p>
+        {% translate "Este portfólio organiza-se em três áreas: Tecnologia e Fotografia, com maior destaque, e Fitness, como interesse pessoal." %}
+      </p>
+      <p>
+        <a href="#explora">{% translate "Ver as áreas do portfólio" %} ↓</a>
+      </p>
+    </div>
+  </div>
+</section>
 {% endblock %}

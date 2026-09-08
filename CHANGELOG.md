@@ -58,3 +58,26 @@ Todas as alteracoes relevantes deste projeto devem ser documentadas neste fichei
   e base) quando partilham a mesma linha da grid em desktop, via
   `align-items: stretch` (comportamento nativo do CSS Grid) — sem
   alturas fixas. Em mobile, cada cartão mantém a sua altura natural.
+
+## 0.2.3
+
+- Secção Sobre mim na Home: texto restrito ao já aprovado — a frase-base
+  de posicionamento ("estudante de Engenharia Informática, interessado
+  em desenvolvimento, tecnologia e criação de conteúdo") com o nome
+  antecipado, e uma frase que descreve a própria estrutura do site
+  (Tecnologia/Fotografia em destaque, Fitness secundária), já
+  implementada na Explora. Sem experiência, empresas, projetos,
+  competências, prémios ou formação adicional inventados.
+- Ligação interna "Ver as áreas do portfólio ↓" para `#explora` —
+  não é criada nenhuma página "/sobre/" nesta fase.
+- Sem fotografia pessoal; `.about__layout` preparado com uma classe
+  modificadora reservada (`--with-media`) para, no futuro, receber uma
+  imagem em duas colunas no desktop sem reconstruir a secção.
+- Item "Sobre" da navegação passa a link funcional (`/#sobre`, não
+  apenas `#sobre`), para continuar a funcionar também a partir de
+  páginas sem esta secção (ex.: `/foundation-check/`). Restantes itens
+  (Tecnologia, Fotografia, Fitness, Projetos, Contacto) continuam
+  pendentes, sem alteração.
+- Testes novos para a existência da secção, o conteúdo aprovado, a
+  ausência de conteúdo inventado, a ausência de URLs fictícias e a
+  ausência de imagem nesta fase.

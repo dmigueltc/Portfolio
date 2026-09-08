@@ -284,6 +284,38 @@
   padding: var(--space-lg);
 }
 
+/* -------------------- Sobre mim -------------------- */
+
+.about {
+  padding-block: var(--space-4xl);
+}
+
+.about__layout {
+  display: grid;
+  gap: var(--space-2xl);
+}
+
+/* Reservado para uma futura fotografia (ver information-architecture.md,
+   "Sobre mim": elemento visual sem depender de fotografia pessoal
+   inicialmente). Quando essa imagem existir, adicionar a classe
+   modificadora --with-media a .about__layout e um elemento
+   .about__media como segundo filho — a partir de desktop, o layout
+   passa a duas colunas sem reconstruir o texto já existente. Sem
+   .about__media presente, esta regra não é aplicada (a classe
+   modificadora não está no HTML), por isso não tem efeito agora. */
+@media (min-width: 64rem) {
+  .about__layout--with-media {
+    grid-template-columns: 3fr 2fr;
+    align-items: center;
+  }
+}
+
+/* Mesma largura de leitura já usada em .hero__statement, para manter
+   linhas de texto confortáveis (não é um valor novo/isolado). */
+.about__content {
+  max-width: 42rem;
+}
+
 /* -------------------- Footer -------------------- */
 
 .site-footer {
