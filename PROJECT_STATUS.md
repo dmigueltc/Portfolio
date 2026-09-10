@@ -2,7 +2,7 @@
 
 ## Versão
 
-0.2.4
+0.2.5
 
 ## Fase
 
@@ -10,10 +10,10 @@ FASE 5 — Development Foundation V1
 
 ## Estado
 
-Development Foundation V1 validada. Home com Hero, Explora, Sobre mim e
-Tecnologia implementadas, ainda sem páginas próprias por área, sem
-projetos reais e sem as restantes secções da Home (Projetos em
-destaque, Fotografia/criação, Contacto).
+Development Foundation V1 validada. Home com Hero, Explora, Sobre mim,
+Tecnologia e Projetos em destaque implementadas, ainda sem páginas
+próprias por área, sem projetos reais e sem as restantes secções da
+Home (Fotografia/criação, Contacto).
 
 ## Concluído
 
@@ -55,6 +55,13 @@ destaque, Fotografia/criação, Contacto).
   para projetos reais com estado "Em preparação". Sem tecnologias,
   projetos ou competências específicas inventadas. Item "Tecnologia" da
   navegação continua pendente (não foi ligado à secção nesta fase).
+  Aprovada visualmente.
+- Secção Projetos em destaque da Home (posição prevista em DEC-009,
+  aplicada após a Tecnologia — ver DEC-016): apenas introdução e
+  estado "Em preparação", sem nenhum cartão de projeto — ainda não
+  existem projetos pessoais finais aprovados (FR-006). Item "Projetos"
+  da navegação passa a link funcional (`/#projetos`), seguindo o mesmo
+  padrão já aplicado a "Sobre" (não é uma decisão nova).
 
 ## Em progresso
 
@@ -67,24 +74,31 @@ destaque, Fotografia/criação, Contacto).
   final — não foi criada nesta fase.
 - Página "Tecnologia" completa (fora da Home, FR-005) continua pendente
   — a secção implementada é um resumo na Home, não a página dedicada.
+- Página "Projetos" completa (fora da Home, FR-006) continua pendente —
+  requer projetos reais e, no futuro, sistema de gestão de conteúdo.
+- Estrutura de cartão de projeto ("Project Card") ainda não desenhada —
+  deliberadamente adiada até existirem projetos reais que definam os
+  campos necessários (título, categoria, tecnologias, links, etc.).
 - Decidir se o item "Tecnologia" da navegação deve passar a link para
-  `/#tecnologia`, tal como já aconteceu com "Sobre".
+  `/#tecnologia`, tal como já aconteceu com "Sobre" e "Projetos".
 
 ## Próximo passo
 
 - Decidir e implementar a próxima secção da Home (por exemplo,
-  "Fotografia/criação", "Fitness", "Projetos em destaque" ou
-  "Contacto"), apenas com conteúdo real aprovado — sem inventar texto,
-  projetos ou fotografias.
+  "Fotografia/criação", "Fitness" ou "Contacto"), apenas com conteúdo
+  real aprovado — sem inventar texto, projetos ou fotografias.
 
 ## Nota
 
 Não existem funcionalidades de software concluídas nesta fase além da
-Foundation e das secções Hero, Explora, Sobre mim e Tecnologia da Home.
+Foundation e das secções Hero, Explora, Sobre mim, Tecnologia e
+Projetos em destaque da Home.
 
 A secção Tecnologia estende a estrutura de Home aprovada em DEC-009
 (que não previa uma secção própria de Tecnologia, apenas o cartão na
-Explora) — extensão registada em DEC-016 do decision-log.md.
+Explora) — extensão registada em DEC-016 do decision-log.md. A secção
+Projetos em destaque já estava prevista em DEC-009; a sua posição
+(depois de Tecnologia) segue essa mesma extensão.
 
 Não implementar o portfólio final, conteúdo fictício, deployment, integrações,
 autenticação completa ou infraestrutura complexa nesta fase.

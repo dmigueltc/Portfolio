@@ -61,19 +61,26 @@ class HomePageTests(TestCase):
         # (ex.: /foundation-check/), não apenas "#sobre" isolado.
         self.assertContains(response, 'href="/#sobre"')
 
+    def test_navigation_projetos_link_is_functional(self):
+        response = self.client.get(reverse("pages:home"))
+
+        # "Projetos" segue o mesmo padrão já aplicado a "Sobre": link
+        # real para a Home + âncora, não apenas "#projetos" isolado.
+        self.assertContains(response, 'href="/#projetos"')
+
     def test_navigation_pending_areas_are_not_links(self):
         response = self.client.get(reverse("pages:home"))
         content = response.content.decode()
 
-        # Tecnologia/Fotografia/Fitness/Projetos/Contacto ainda não têm
-        # página de destino nesta fase — devem aparecer como
+        # Tecnologia/Fotografia/Fitness/Contacto ainda não têm página
+        # de destino nesta fase — devem aparecer como
         # <span class="site-nav__item--pending">, nunca como <a href="...">.
-        # "Sobre" já não está nesta lista: passou a link funcional.
+        # "Sobre" e "Projetos" já não estão nesta lista: passaram a
+        # links funcionais.
         pending_areas = (
             "Tecnologia",
             "Fotografia",
             "Fitness",
-            "Projetos",
             "Contacto",
         )
         for area in pending_areas:
@@ -287,6 +294,87 @@ class TechnologySectionTests(TestCase):
         response = self.client.get(reverse("pages:home"))
 
         self.assertNotContains(response, 'href="/tecnologia/"')
+
+
+class FeaturedProjectsSectionTests(TestCase):
+    def test_projects_section_exists(self):
+        response = self.client.get(reverse("pages:home"))
+        content = response.content.decode()
+
+        self.assertContains(response, 'id="projetos"')
+        self.assertRegex(content, r"<h2[^>]*>\s*Projetos em destaque\s*</h2>")
+
+    def test_projects_section_shows_pending_status(self):
+        response = self.client.get(reverse("pages:home"))
+        content = response.content.decode()
+
+        projects_section = re.search(
+            r'<section id="projetos".*?</section>', content, re.DOTALL
+        )
+        self.assertIsNotNone(projects_section)
+        self.assertIn(
+            '<span class="area-card__status">Em preparação</span>',
+            projects_section.group(0),
+        )
+
+    def test_projects_section_has_no_fictitious_projects(self):
+        response = self.client.get(reverse("pages:home"))
+        content = response.content.decode()
+
+        projects_section = re.search(
+            r'<section id="projetos".*?</section>', content, re.DOTALL
+        )
+        self.assertIsNotNone(projects_section)
+        section_html = projects_section.group(0)
+
+        # Nenhum cartão de projeto, nenhuma ligação (GitHub, demo, ou
+        # qualquer outra), nenhuma imagem — só o estado "Em preparação".
+        self.assertNotIn("<article", section_html)
+        self.assertNotIn("<a ", section_html)
+        self.assertNotIn("<img", section_html)
+
+    def test_projects_section_does_not_invent_content(self):
+        response = self.client.get(reverse("pages:home"))
+        content = response.content.decode()
+
+        # Nada de nomes de projeto, tecnologias específicas, clientes,
+        # empresas, métricas ou datas inventadas.
+        forbidden_terms = (
+            "github.com",
+            "cliente",
+            "empresa",
+            "%",
+            "utilizadores",
+            "downloads",
+        )
+        for term in forbidden_terms:
+            self.assertNotIn(
+                term,
+                content.lower(),
+                f"Conteúdo não aprovado encontrado: '{term}'.",
+            )
+
+    def test_projects_section_does_not_create_dedicated_page(self):
+        # Nesta fase não existe nenhuma página "/projetos/" própria.
+        response = self.client.get(reverse("pages:home"))
+
+        self.assertNotContains(response, 'href="/projetos/"')
+
+    def test_projects_section_integrates_after_technology(self):
+        response = self.client.get(reverse("pages:home"))
+        content = response.content.decode()
+
+        # Confirma a posição na Home: depois de Tecnologia, antes do
+        # footer (DEC-009: Sobre mim > Projetos em destaque > Footer;
+        # Tecnologia foi inserida entre Sobre mim e Projetos por
+        # DEC-016).
+        tech_index = content.find('id="tecnologia"')
+        projects_index = content.find('id="projetos"')
+        footer_index = content.find('class="site-footer"')
+
+        self.assertGreater(tech_index, -1)
+        self.assertGreater(projects_index, tech_index)
+        self.assertGreater(footer_index, projects_index)
 
 
 class FoundationCheckTests(TestCase):

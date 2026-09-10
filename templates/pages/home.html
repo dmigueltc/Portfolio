@@ -156,4 +156,28 @@
     <span class="area-card__status">{% translate "Em preparação" %}</span>
   </div>
 </section>
+
+<section id="projetos" class="projects container" aria-labelledby="projetos-title">
+  <header class="section-heading">
+    <h2 id="projetos-title" class="section-heading__title">{% translate "Projetos em destaque" %}</h2>
+  </header>
+
+  {% comment %}
+  Ainda não existe nenhum projeto pessoal final aprovado (ver FR-006,
+  information-architecture.md "Projetos em destaque" e sitemap-v1.md
+  "6. Projetos": "Ainda não existem projetos pessoais finais
+  definidos"). Por isso esta secção não tem nenhum cartão de projeto —
+  apenas a introdução e o estado "Em preparação" (mesmo padrão já
+  usado na Explora e na Tecnologia). Quando existirem projetos reais,
+  um grid de cartões pode ser adicionado aqui reutilizando o padrão já
+  estabelecido em .explora__grid/--card-grid-min-width (tokens.css),
+  sem reconstruir esta secção nem o resto da Home.
+  {% endcomment %}
+  <div class="projects__intro">
+    <p>
+      {% translate "Esta é a área reservada para projetos reais — pessoais, técnicos ou criativos. Ainda não existem projetos finais aprovados para apresentar." %}
+    </p>
+    <span class="area-card__status">{% translate "Em preparação" %}</span>
+  </div>
+</section>
 {% endblock %}

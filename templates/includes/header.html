@@ -42,7 +42,19 @@
         <li><span class="site-nav__item--pending">{% translate "Tecnologia" %}</span></li>
         <li><span class="site-nav__item--pending">{% translate "Fotografia" %}</span></li>
         <li><span class="site-nav__item--pending">{% translate "Fitness" %}</span></li>
-        <li><span class="site-nav__item--pending">{% translate "Projetos" %}</span></li>
+        {% comment %}
+        "Projetos" segue o mesmo padrão já aplicado a "Sobre": passa a
+        link real para a secção #projetos, sempre através do caminho
+        da Home ({% templatetag openblock %} url 'pages:home' {% templatetag closeblock %}#projetos),
+        para continuar a funcionar a partir de outras páginas (ex.:
+        /foundation-check/). Não é uma decisão nova — é a mesma regra
+        já aplicada a "Sobre" a ser reutilizada aqui.
+        {% endcomment %}
+        <li>
+          <a class="site-nav__link" href="{% url 'pages:home' %}#projetos">
+            {% translate "Projetos" %}
+          </a>
+        </li>
         <li><span class="site-nav__item--pending">{% translate "Contacto" %}</span></li>
       </ul>
     </nav>

@@ -108,3 +108,25 @@ Todas as alteracoes relevantes deste projeto devem ser documentadas neste fichei
   ausência de conteúdo/tecnologias inventadas, a ausência de projetos
   fictícios e a confirmação de que não foi criada nenhuma página
   "/tecnologia/".
+
+## 0.2.5
+
+- Secção Projetos em destaque na Home, posicionada depois de Tecnologia
+  e antes do Footer (DEC-009 previa esta secção depois de Sobre mim;
+  a posição exata segue a extensão já registada em DEC-016).
+- Sem nenhum cartão de projeto: ainda não existem projetos pessoais
+  finais aprovados (FR-006, information-architecture.md, sitemap-v1.md
+  "6. Projetos"). Apenas introdução curta e o estado "Em preparação"
+  (reutiliza `.area-card__status`, já usado na Explora e Tecnologia).
+- Estrutura de "Project Card" deliberadamente NÃO desenhada nesta fase
+  — ficaria a adivinhar campos sem projetos reais para os validar.
+  Quando existirem, um grid pode reutilizar o padrão já estabelecido
+  em `.explora__grid`/`--card-grid-min-width` (tokens.css), sem
+  reconstruir a secção.
+- Item "Projetos" da navegação passa a link funcional (`/#projetos`),
+  seguindo exatamente o mesmo padrão já aplicado a "Sobre" — não é
+  registada como decisão nova (é a mesma decisão a ser reaplicada).
+- Testes novos para a existência da secção, o estado "Em preparação",
+  a ausência de projetos/tecnologias/imagens/links fictícios, a
+  ausência de uma página "/projetos/" dedicada, e a posição correta
+  na Home (depois de Tecnologia, antes do Footer).

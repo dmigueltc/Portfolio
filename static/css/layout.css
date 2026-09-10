@@ -366,6 +366,25 @@
   max-width: var(--prose-max-width);
 }
 
+/* -------------------- Projetos em destaque -------------------- */
+/* Sem cartões nesta fase — nenhum projeto real aprovado ainda (ver
+   comentário em home.html). Quando existirem projetos, um grid de
+   .project-card pode reutilizar exatamente o padrão já estabelecido
+   em .explora__grid e --card-grid-min-width (tokens.css), sem
+   reconstruir esta secção. */
+
+.projects {
+  padding-block: var(--space-4xl);
+}
+
+.projects__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  max-width: var(--prose-max-width);
+}
+
 /* -------------------- Footer -------------------- */
 
 .site-footer {
