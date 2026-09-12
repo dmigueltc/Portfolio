@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" role="img" aria-label="Imagem de demonstração — layout temporário, sem conteúdo real">
+  <defs>
+    <linearGradient id="p7sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D9B998"/>
+      <stop offset="100%" stop-color="#EFE7E0"/>
+    </linearGradient>
+    <linearGradient id="p7ground" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3A5A48"/>
+      <stop offset="100%" stop-color="#1B1A18"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="380" fill="url(#p7sky)"/>
+  <rect y="380" width="900" height="220" fill="url(#p7ground)"/>
+  <rect x="16" y="558" width="66" height="26" rx="13" fill="#1B1A18" opacity="0.4"/>
+  <text x="49" y="575" text-anchor="middle" font-family="sans-serif" font-size="13" letter-spacing="1" fill="#FAF7F4" opacity="0.85">DEMO</text>
+</svg>

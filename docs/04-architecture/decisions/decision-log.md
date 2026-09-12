@@ -180,6 +180,32 @@ A DEC-009 definia a estrutura da Home como Hero, Explora, Sobre mim, Projetos em
 Consequência:
 A estrutura da Home passa a Hero, Explora, Sobre mim, Tecnologia, Projetos em destaque, Fotografia/criação, Contacto e Footer. Fica em aberto se outras áreas da Explora (Fotografia, Fitness) devem receber o mesmo tratamento (secção própria na Home) ou permanecer apenas como cartões — ver PEND correspondente.
 
+### DEC-017 — Instagram como plataforma de publicação; portfólio como curadoria
+
+Estado:
+Aprovada (incremento "Fotografia/criação").
+
+Decisão:
+As fotografias pessoais não serão alojadas nem geridas diretamente pelo portfólio (sem modelos Django, uploads ou media management para fotografia nesta fase). O Instagram passa a ser a plataforma principal de publicação das fotografias; o portfólio funciona como uma montra/curadoria de uma seleção dessas publicações, com cada item a linkar diretamente para o post original no Instagram (URL normal, sem API, sem OAuth, sem scraping, sem sincronização automática).
+
+Esta decisão é mais específica do que o que já estava documentado: os documentos existentes (DEC-013, RNF-010, FR-007 e outros) já tratavam o Instagram como origem principal de tráfego e possível ligação de contacto, e já estabeleciam que "o site não deve depender da API ou disponibilidade do Instagram para funcionar" — este princípio mantém-se e não é contrariado por esta decisão: a secção Fotografia funciona (renderiza, é acessível) independentemente do Instagram estar disponível; só o clique num post individual (quando existirem posts reais) depende do Instagram, tal como qualquer link externo comum.
+
+Consequência:
+Quando existirem posts reais selecionados, cada um passa a um elemento `.photo-card` (`<a>` com `href` para o URL do post, `target="_blank"`, `rel="noopener noreferrer"`, imagem com `alt`, indicação acessível de abertura externa) dentro da galeria (ver DEC-018 para a estrutura visual). Não é criada integração automática com a API do Instagram nesta fase nem está prevista como necessidade imediata — qualquer decisão nesse sentido exige uma nova decisão registada aqui.
+
+### DEC-018 — Fotografia: apresentação editorial/masonry (referência conceptual Pinterest) + assets DEMO temporários
+
+Estado:
+Aprovada (revisão visual da secção "Fotografia").
+
+Decisão:
+A primeira implementação da secção Fotografia (introdução + lista de temas + estado "Em preparação") não transmitia o peso visual que a área deve ter. Foi revista para uma galeria masonry/waterfall via CSS columns (sem JavaScript), com imagens de proporções variadas (portrait, landscape, square) e um item que representa vídeo — usando como referência conceptual o princípio visual do Pinterest (várias colunas, alturas naturais, ritmo editorial), sem copiar a plataforma nem construir uma galeria tradicional com filtros/paginação/lightbox. A lista de temas (Fotografia, Edição, Criação visual, Vídeo) deixou de aparecer no layout; a introdução textual foi reduzida a uma frase curta, para a galeria ser o elemento dominante.
+
+Para permitir avaliar visualmente a composição sem fotografias reais, foram adicionados assets DEMO temporários (`static/images/photography/demo/`): gráficos SVG abstratos gerados por código (gradientes com as cores do design system + texto "DEMO"), não fotografias reais nem de terceiros, sem título/local/data/cliente associados. Ver `static/images/photography/demo/README.md`.
+
+Consequência:
+Estes assets DEMO devem ser removidos quando existirem posts reais selecionados do Instagram (ver DEC-017), substituindo cada `<figure class="photo-card">` por um `<a class="photo-card" href="...">` real, sem alterar a estrutura CSS da galeria (`.photo-grid`/`.photo-card` já preparadas para essa substituição, dado que o masonry se baseia na proporção natural de cada imagem, não em spans pré-calculados).
+
 ## Recomendações para V1
 
 - Django (recomendado)
@@ -278,10 +304,10 @@ Decisão futura.
 Notas:
 Não depender de API do Instagram nesta fase.
 
-### PEND-012 — Secção própria na Home para Fotografia e Fitness
+### PEND-012 — Secção própria na Home para Fitness
 
 Estado:
 Pendente.
 
 Notas:
-A DEC-016 deu à Tecnologia uma secção própria na Home, além do cartão na Explora. Ainda não foi decidido se Fotografia e Fitness devem receber o mesmo tratamento (secção própria) ou permanecer apenas como cartões na Explora até existirem páginas dedicadas.
+A DEC-016 deu à Tecnologia uma secção própria na Home, e a DEC-017/DEC-018 fizeram o mesmo para Fotografia. Fitness continua apenas como cartão secundário na Explora — ainda não foi decidido se deve também receber uma secção própria ou permanecer só ali, dado o seu peso intencionalmente menor (ver information-architecture.md e sitemap-v1.md: "Fitness deverá ter peso inferior a Fotografia").

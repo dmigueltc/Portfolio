@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Imagem de demonstração — layout temporário, sem conteúdo real">
+  <defs>
+    <linearGradient id="p2sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D8D0C8"/>
+      <stop offset="100%" stop-color="#EFE7E0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#p2sky)"/>
+  <g fill="#5F5A54" opacity="0.55">
+    <rect x="40" y="360" width="90" height="240"/>
+    <rect x="150" y="300" width="70" height="300"/>
+    <rect x="240" y="400" width="110" height="200"/>
+    <rect x="370" y="260" width="60" height="340"/>
+    <rect x="450" y="340" width="130" height="260"/>
+    <rect x="600" y="380" width="80" height="220"/>
+    <rect x="700" y="320" width="70" height="280"/>
+  </g>
+  <rect x="16" y="558" width="66" height="26" rx="13" fill="#1B1A18" opacity="0.35"/>
+  <text x="49" y="575" text-anchor="middle" font-family="sans-serif" font-size="13" letter-spacing="1" fill="#FAF7F4" opacity="0.85">DEMO</text>
+</svg>

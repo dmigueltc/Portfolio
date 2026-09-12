@@ -53,6 +53,12 @@
 
   /* Layout */
   --content-max-width: 75rem; /* 1200px */
+  /* Variante mais larga do container, só para secções onde o
+     conteúdo visual precisa de mais espaço horizontal (ex.: a galeria
+     de Fotografia) — sem ir a full-bleed. Token em vez de um valor
+     isolado, para poder ser reutilizado por outras secções visuais
+     no futuro sem duplicar o número. */
+  --content-max-width-wide: 90rem; /* 1440px */
   --gutter: 1.5rem;           /* 24px, reduz em mobile via layout.css */
   /* Largura mínima de coluna para grids de cartões extensíveis (ex.:
      Explora). Um único token em vez de um número isolado em layout.css,

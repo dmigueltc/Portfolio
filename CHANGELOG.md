@@ -130,3 +130,147 @@ Todas as alteracoes relevantes deste projeto devem ser documentadas neste fichei
   a ausência de projetos/tecnologias/imagens/links fictícios, a
   ausência de uma página "/projetos/" dedicada, e a posição correta
   na Home (depois de Tecnologia, antes do Footer).
+
+## 0.2.6
+
+- Secção Fotografia/criação na Home, posicionada depois de Projetos em
+  destaque e antes do Footer. Implementada como galeria
+  masonry/waterfall via CSS `columns` (sem JavaScript) — referência
+  conceptual ao princípio visual do Pinterest (várias colunas, alturas
+  naturais por proporção da própria imagem, ritmo editorial), sem
+  copiar a plataforma nem construir galeria tradicional (sem filtros,
+  paginação ou lightbox). 2 colunas em mobile, 3 em tablet, 4 em
+  desktop — breakpoints coerentes com os já existentes.
+- Removida da apresentação visual a lista de temas (Fotografia,
+  Edição, Criação visual, Vídeo) e o "Em preparação" repetido da
+  primeira versão — a galeria passa a ser o elemento dominante da
+  secção, com apenas uma frase curta de introdução.
+- Assets DEMO temporários adicionados em
+  `static/images/photography/demo/` (6 SVGs abstratos gerados por
+  código — gradientes com as cores do design system + texto "DEMO" —
+  mais um README.md a documentar explicitamente que são temporários).
+  Proporções variadas: portrait (3:4, 2:3, 4:5), landscape (4:3),
+  square (1:1), e um item landscape com ícone de play embutido a
+  representar vídeo. Nenhuma fotografia real, de terceiros, ou
+  associada a qualquer post real do Instagram.
+- Indicador discreto de vídeo (`.photo-card__play`, pequeno badge no
+  canto, sempre visível — não depende de hover) no item de exemplo
+  correspondente. Sem `<video>`, sem autoplay.
+- `.photo-card` reutiliza a preparação já feita no incremento anterior
+  para posts reais do Instagram (link externo acessível,
+  `target="_blank"`, `rel="noopener noreferrer"`) — nesta fase cada
+  item é um `<figure>` sem link, já que não existem posts reais.
+- Duas decisões novas registadas no decision-log.md: **DEC-017**
+  (Instagram como plataforma de publicação; portfólio como curadoria —
+  decisão do incremento anterior, agora formalmente registada) e
+  **DEC-018** (apresentação editorial/masonry com referência ao
+  Pinterest + uso de assets DEMO temporários). PEND-012 atualizado:
+  já só falta decidir sobre Fitness.
+- Testes atualizados/novos: existência da galeria, variedade de
+  proporções demo, identificação clara das imagens como temporárias
+  (alt text + nota visível), indicador de vídeo sem autoplay, ausência
+  de qualquer link/URL do Instagram ou API, ausência de conteúdo
+  inventado, ausência de página "/fotografia/" dedicada, e posição
+  correta na Home.
+
+## 0.2.7
+
+- Refinamento visual da galeria de Fotografia (sem alterar o conceito
+  masonry nem a arquitetura — mesma DEC-018, sem nova decisão):
+  - Assets demo redesenhados: passam de blocos de gradiente simples a
+    composições abstratas por camadas (formas geométricas + gradientes)
+    que sugerem géneros fotográficos diferentes — retrato (vinheta
+    suave), arquitetura (skyline abstrato), street/urbano (diagonais de
+    contraste), paisagem (horizonte), edição criativa (duotone
+    diagonal), retrato suave (bokeh simulado). Continuam 100%
+    abstratos, gerados por código, sem qualquer fotografia real ou de
+    terceiros.
+  - Novo 7º asset (`demo-07-landscape-wide.svg`, paisagem/horizonte)
+    para mais variedade de ritmo na composição.
+  - Watermark "DEMO" tornado discreto: passa de texto grande centrado
+    com proporção (ex.: "DEMO · 3:4") a um pequeno selo no canto
+    inferior esquerdo de cada imagem — a imagem volta a ser o primeiro
+    elemento a chamar a atenção.
+  - Ordem das 7 imagens na galeria escolhida deliberadamente (retrato
+    alto, quadrado, horizontal, retrato, vídeo, retrato suave,
+    horizontal largo) para dar ritmo intencional à composição, em vez
+    de uma sequência arbitrária.
+  - Vídeo demo redesenhado com o mesmo tratamento visual das
+    fotografias (deixa de ser um bloco escuro com um grande ícone de
+    play central); o indicador de vídeo (`.photo-card__play`) fica
+    menor, mais discreto e no canto oposto ao watermark.
+  - Hover/focus da galeria reforçado com um overlay subtil em
+    gradiente + leve aumento de brilho, além do zoom já existente —
+    sensação mais editorial, sem elementos pesados. `focus-visible`
+    mantido; `prefers-reduced-motion` continua coberto pela regra
+    global já existente em base.css.
+  - Novo token `--content-max-width-wide` (90rem) e classe
+    `.container--wide`, aplicados apenas à secção Fotografia, para lhe
+    dar mais espaço horizontal sem tornar a secção full-bleed nem
+    alterar o `.container` usado pelas restantes secções.
+- Testes ampliados: as 7 imagens demo (incluindo a nova), contagem de
+  itens da galeria, e confirmação de que a secção usa o container mais
+  largo.
+
+## 0.2.8
+
+- Revisão final dos assets DEMO da Fotografia: substituídos os 7 SVGs
+  vetoriais por imagens `.jpg` geradas localmente com um script
+  auxiliar (`generate_demo_images.py`, fora da app Django) — gradientes
+  + desfoque gaussiano + grão + vinheta, muito mais próximas do
+  aspeto de uma fotografia desfocada do que gráficos vetoriais
+  nítidos. Continuam 100% geradas por código, sem qualquer fotografia
+  real ou de terceiros (ver README atualizado em
+  `static/images/photography/demo/` a documentar a origem exata).
+  Não foram usadas imagens externas/de stock — o ambiente de execução
+  não tem acesso a bancos de imagens da internet, e mesmo que tivesse,
+  a licença de qualquer imagem de terceiros teria de ser verificável e
+  documentada, o que não é possível garantir de forma fiável nesta
+  fase; a alternativa gerada localmente evita esse risco por completo.
+- Watermark "DEMO" mantido, com o mesmo tratamento discreto (selo
+  pequeno no canto).
+- Nova ordem das 7 imagens na galeria, pensada para não parecer
+  "organizada em blocos": horizontal → retrato alto → quadrado →
+  retrato → vídeo → horizontal largo → retrato suave.
+- Espaço entre a introdução e a galeria reduzido (`.photo__intro`:
+  `--space-2xl` → `--space-lg`) — a galeria aparece mais depressa.
+- **Correção de alinhamento**: a classe `.container--wide` e o token
+  `--content-max-width-wide` (introduzidos na iteração anterior para
+  dar mais largura à Fotografia) foram removidos. A secção volta a
+  usar exatamente o `.container` das restantes secções — mesmo eixo
+  esquerdo/direito em toda a Home (Explora, Sobre mim, Tecnologia,
+  Projetos em destaque e Fotografia), confirmado em desktop, tablet e
+  mobile. Nenhuma outra secção foi alterada para se ajustar à
+  Fotografia — foi a Fotografia que voltou à consistência estrutural.
+- Testes atualizados: extensões `.jpg` em vez de `.svg`; o teste do
+  "container mais largo" foi substituído por um teste que confirma
+  que Fotografia usa a mesma classe `.container` que Tecnologia e
+  Projetos em destaque.
+- Nenhuma decisão arquitetural nova — esta entrada aplica/reverte
+  decisões de implementação já cobertas por DEC-018, sem alterar o
+  seu conteúdo.
+
+## 0.2.9
+
+- Ajuste final de presença da galeria de Fotografia, sem tocar no
+  container (continua exatamente `.container`, igual às restantes
+  secções):
+  - Máximo de colunas do masonry reduzido de 4 para 3
+    (`.photo-grid`) — dentro da mesma largura, cada imagem fica
+    maior e mais presente, em vez de mais compacta.
+  - Gap entre colunas e entre itens reduzido (`--space-lg` →
+    `--space-md`), para uma sensação mais coesa de galeria em vez de
+    cartões isolados.
+  - Ordem das 7 imagens ajustada: a imagem vertical mais forte
+    (`demo-04-portrait-tall.jpg`) passa a abrir a composição, seguida
+    de horizontal, quadrado, retrato, vídeo, horizontal largo e
+    retrato suave.
+- Mantidos sem alterações: os 7 assets `.jpg`, o watermark discreto,
+  o indicador de vídeo, e a filosofia de hover (zoom subtil + overlay
+  ligeiro), conforme pedido.
+- Testes existentes confirmam que o comportamento se mantém (nenhum
+  teste verifica número de colunas ou valores de gap diretamente,
+  por serem detalhes puramente visuais de CSS); o teste de
+  alinhamento (`.container` igual às restantes secções) continua a
+  passar sem alterações.
+- Nenhuma decisão arquitetural nova.

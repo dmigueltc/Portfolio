@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load static i18n %}
 
 {% block title %}Miguel Cardoso — {% translate "Portfólio profissional + hub pessoal" %}{% endblock %}
 
@@ -179,5 +179,109 @@
     </p>
     <span class="area-card__status">{% translate "Em preparação" %}</span>
   </div>
+</section>
+
+<section id="fotografia" class="photo container" aria-labelledby="fotografia-title">
+  <header class="section-heading">
+    <h2 id="fotografia-title" class="section-heading__title">{% translate "Fotografia" %}</h2>
+  </header>
+
+  {% comment %}
+  Introdução curta e única (FR-007: "fotografias, galerias, edição,
+  vídeo e criação de conteúdo visual") — sem lista de temas, sem
+  "Em preparação" repetido: a galeria é o elemento visual dominante
+  (ver DEC-018 no decision-log.md).
+  {% endcomment %}
+  <div class="photo__intro">
+    <p>
+      {% translate "Fotografia, edição e criação visual — uma seleção do que vejo e crio." %}
+    </p>
+  </div>
+
+  {% comment %}
+  GALERIA MASONRY — DEC-018 (revisão final dos assets/composição).
+
+  Imagens atuais: assets DEMO temporários (.jpg), gerados localmente
+  por um script auxiliar (gradientes + desfoque gaussiano + grão +
+  vinheta — ver static/images/photography/demo/README.md), não
+  fotografias reais nem de terceiros. Não têm título/local/data/
+  cliente reais, e não estão associadas a nenhum post real do
+  Instagram — servem só para avaliar composição, ritmo, proporção e
+  responsividade do masonry com uma aparência mais próxima de
+  fotografia do que os gráficos vetoriais nítidos usados antes.
+
+  Ordem deliberada (não aleatória), com uma imagem vertical dominante
+  em primeiro lugar: retrato alto (street, dominante) → horizontal
+  (arquitetura) → quadrado (edição criativa) → retrato (quente) →
+  vídeo → horizontal largo (paisagem) → retrato suave.
+
+  Cada <li> é hoje um <figure class="photo-card"> sem link. Quando
+  existir um post real selecionado do Instagram (ver DEC-017), o
+  mesmo <li> passa a conter:
+
+    <a class="photo-card"
+       href="https://www.instagram.com/p/POST_ID/"
+       target="_blank"
+       rel="noopener noreferrer">
+      <img src="{{ post.thumbnail_url }}" alt="{{ post.alt_text }}">
+      <span class="visually-hidden">{% translate "(abre no Instagram, nova janela)" %}</span>
+    </a>
+
+  — sem alterar a regra do .photo-grid nem do .photo-card em
+  layout.css: o dimensionamento masonry (CSS columns) baseia-se na
+  proporção natural de cada imagem, não num span pré-calculado, por
+  isso novas fotografias (reais ou demo) encaixam sem reconstrução. O
+  indicador de vídeo (.photo-card__play) é HTML/CSS, não faz parte da
+  imagem — por isso um post de vídeo real usa a mesma <figcaption>.
+
+  Campos futuros previstos por post (sem modelos Django nesta fase):
+  título/alt text, URL do post, imagem/thumbnail, tipo (foto/vídeo),
+  ordem, ativo/inativo.
+  {% endcomment %}
+  <ul class="photo-grid">
+    <li>
+      <figure class="photo-card">
+        <img src="{% static 'images/photography/demo/demo-04-portrait-tall.jpg' %}" alt="{% translate 'Imagem de demonstração — layout temporário, sem conteúdo real' %}" loading="lazy">
+      </figure>
+    </li>
+    <li>
+      <figure class="photo-card">
+        <img src="{% static 'images/photography/demo/demo-02-landscape.jpg' %}" alt="{% translate 'Imagem de demonstração — layout temporário, sem conteúdo real' %}" loading="lazy">
+      </figure>
+    </li>
+    <li>
+      <figure class="photo-card">
+        <img src="{% static 'images/photography/demo/demo-03-square.jpg' %}" alt="{% translate 'Imagem de demonstração — layout temporário, sem conteúdo real' %}" loading="lazy">
+      </figure>
+    </li>
+    <li>
+      <figure class="photo-card">
+        <img src="{% static 'images/photography/demo/demo-01-portrait.jpg' %}" alt="{% translate 'Imagem de demonstração — layout temporário, sem conteúdo real' %}" loading="lazy">
+      </figure>
+    </li>
+    <li>
+      <figure class="photo-card">
+        <img src="{% static 'images/photography/demo/demo-05-video.jpg' %}" alt="{% translate 'Vídeo de demonstração — layout temporário, sem conteúdo real' %}" loading="lazy">
+        <figcaption class="photo-card__play" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </figcaption>
+      </figure>
+    </li>
+    <li>
+      <figure class="photo-card">
+        <img src="{% static 'images/photography/demo/demo-07-landscape-wide.jpg' %}" alt="{% translate 'Imagem de demonstração — layout temporário, sem conteúdo real' %}" loading="lazy">
+      </figure>
+    </li>
+    <li>
+      <figure class="photo-card">
+        <img src="{% static 'images/photography/demo/demo-06-portrait-square.jpg' %}" alt="{% translate 'Imagem de demonstração — layout temporário, sem conteúdo real' %}" loading="lazy">
+      </figure>
+    </li>
+  </ul>
+
+  <p class="photo__status">
+    <span class="area-card__status">{% translate "Demo" %}</span>
+    {% translate "O conteúdo real vai ser uma seleção de publicações do Instagram." %}
+  </p>
 </section>
 {% endblock %}

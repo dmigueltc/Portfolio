@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Vídeo de demonstração — layout temporário, sem conteúdo real">
+  <defs>
+    <linearGradient id="p5bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8E6F3A"/>
+      <stop offset="100%" stop-color="#5F5A54"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#p5bg)"/>
+  <g fill="#1B1A18" opacity="0.3">
+    <rect x="0" y="380" width="960" height="160"/>
+  </g>
+  <rect x="16" y="498" width="66" height="26" rx="13" fill="#1B1A18" opacity="0.4"/>
+  <text x="49" y="515" text-anchor="middle" font-family="sans-serif" font-size="13" letter-spacing="1" fill="#FAF7F4" opacity="0.85">DEMO</text>
+</svg>

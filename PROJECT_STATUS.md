@@ -2,7 +2,7 @@
 
 ## Versão
 
-0.2.5
+0.2.9
 
 ## Fase
 
@@ -11,9 +11,9 @@ FASE 5 — Development Foundation V1
 ## Estado
 
 Development Foundation V1 validada. Home com Hero, Explora, Sobre mim,
-Tecnologia e Projetos em destaque implementadas, ainda sem páginas
-próprias por área, sem projetos reais e sem as restantes secções da
-Home (Fotografia/criação, Contacto).
+Tecnologia, Projetos em destaque e Fotografia/criação implementadas,
+ainda sem páginas próprias por área, sem projetos ou fotografias reais
+e sem a secção Contacto.
 
 ## Concluído
 
@@ -61,7 +61,46 @@ Home (Fotografia/criação, Contacto).
   estado "Em preparação", sem nenhum cartão de projeto — ainda não
   existem projetos pessoais finais aprovados (FR-006). Item "Projetos"
   da navegação passa a link funcional (`/#projetos`), seguindo o mesmo
-  padrão já aplicado a "Sobre" (não é uma decisão nova).
+  padrão já aplicado a "Sobre" (não é uma decisão nova). Aprovada
+  visualmente.
+- Secção Fotografia/criação da Home, revista para uma galeria
+  masonry/waterfall via CSS columns (DEC-018, referência conceptual
+  Pinterest, sem JavaScript e sem cópia da plataforma): imagens de
+  proporções variadas (portrait, landscape, square) e um item que
+  representa vídeo, com indicador de play discreto. A lista de temas e
+  o "Em preparação" repetido da primeira versão foram removidos da
+  apresentação visual. Assets DEMO temporários adicionados
+  (`static/images/photography/demo/`, ver README nessa pasta), sem
+  qualquer conteúdo real. DEC-017 (Instagram como plataforma de
+  publicação; portfólio como curadoria) e DEC-018 registadas no
+  decision-log.md. Item "Fotografia" da navegação passa a link
+  funcional (`/#fotografia`).
+  Revisão visual (2ª iteração): os 7 assets demo passaram de
+  gradientes simples a composições abstratas por camadas (sugerindo
+  géneros fotográficos), o watermark "DEMO" tornou-se um pequeno selo
+  discreto no canto, a ordem das imagens foi escolhida
+  deliberadamente para dar ritmo à composição, o hover ganhou um
+  overlay subtil + leve aumento de brilho, e o indicador de vídeo
+  ficou mais pequeno e integrado.
+  Revisão visual (3ª e última iteração desta fase): os assets demo
+  passaram de gráficos vetoriais nítidos (SVG) a imagens rasterizadas
+  (.jpg) geradas localmente com desfoque gaussiano, grão e vinheta —
+  muito mais próximas do aspeto de uma fotografia real, ainda 100%
+  geradas por código (sem fotografias de terceiros; ver README da
+  pasta demo para a origem exata). A tentativa de dar à Fotografia um
+  container mais largo (`.container--wide`) foi revertida: a secção
+  volta a usar exatamente o mesmo `.container` das restantes secções,
+  para manter o mesmo eixo esquerdo/direito em toda a Home — o token
+  `--content-max-width-wide` foi removido por deixar de ter uso. O
+  espaço entre a introdução e a galeria foi reduzido.
+  Ajuste final (4ª iteração): dentro do mesmo `.container` (sem voltar
+  a alargá-lo), a galeria passou de um máximo de 4 para 3 colunas —
+  cada imagem fica maior e com mais presença, sem alterar o container
+  global. Gap entre imagens reduzido (`--space-lg` → `--space-md`),
+  para uma sensação mais coesa de galeria do que de cartões isolados.
+  Ordem das 7 imagens ajustada para abrir com uma imagem vertical
+  claramente dominante. Com esta entrega, a apresentação visual da
+  secção Fotografia fica fechada nesta fase.
 
 ## Em progresso
 
@@ -76,29 +115,43 @@ Home (Fotografia/criação, Contacto).
   — a secção implementada é um resumo na Home, não a página dedicada.
 - Página "Projetos" completa (fora da Home, FR-006) continua pendente —
   requer projetos reais e, no futuro, sistema de gestão de conteúdo.
+- Página "Fotografia" completa (fora da Home, FR-007) continua
+  pendente — a secção implementada é um resumo na Home.
+- Assets DEMO da Fotografia (`static/images/photography/demo/`) devem
+  ser removidos e substituídos por posts reais do Instagram assim que
+  existir uma seleção aprovada (ver DEC-017/DEC-018).
 - Estrutura de cartão de projeto ("Project Card") ainda não desenhada —
   deliberadamente adiada até existirem projetos reais que definam os
   campos necessários (título, categoria, tecnologias, links, etc.).
 - Decidir se o item "Tecnologia" da navegação deve passar a link para
-  `/#tecnologia`, tal como já aconteceu com "Sobre" e "Projetos".
+  `/#tecnologia`, tal como já aconteceu com "Sobre", "Projetos" e
+  "Fotografia".
+- PEND-012: decidir se Fitness recebe secção própria na Home ou
+  permanece apenas como cartão na Explora.
 
 ## Próximo passo
 
 - Decidir e implementar a próxima secção da Home (por exemplo,
-  "Fotografia/criação", "Fitness" ou "Contacto"), apenas com conteúdo
-  real aprovado — sem inventar texto, projetos ou fotografias.
+  "Fitness" ou "Contacto"), apenas com conteúdo real aprovado — sem
+  inventar texto, projetos ou fotografias.
 
 ## Nota
 
 Não existem funcionalidades de software concluídas nesta fase além da
-Foundation e das secções Hero, Explora, Sobre mim, Tecnologia e
-Projetos em destaque da Home.
+Foundation e das secções Hero, Explora, Sobre mim, Tecnologia, Projetos
+em destaque e Fotografia/criação da Home.
 
 A secção Tecnologia estende a estrutura de Home aprovada em DEC-009
 (que não previa uma secção própria de Tecnologia, apenas o cartão na
 Explora) — extensão registada em DEC-016 do decision-log.md. A secção
 Projetos em destaque já estava prevista em DEC-009; a sua posição
-(depois de Tecnologia) segue essa mesma extensão.
+(depois de Tecnologia) segue essa mesma extensão. A secção Fotografia
+introduz duas decisões de produto novas: DEC-017 (Instagram como
+plataforma de publicação, portfólio como curadoria, sem depender da
+API do Instagram para funcionar — compatível com DEC-013/RNF-010 já
+existentes) e DEC-018 (apresentação editorial/masonry com referência
+conceptual ao Pinterest, e uso de assets DEMO temporários enquanto não
+existir uma seleção real de posts).
 
 Não implementar o portfólio final, conteúdo fictício, deployment, integrações,
 autenticação completa ou infraestrutura complexa nesta fase.

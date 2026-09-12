@@ -385,6 +385,143 @@
   max-width: var(--prose-max-width);
 }
 
+/* -------------------- Fotografia / criação -------------------- */
+/* DEC-018: apresentação editorial/masonry (referência conceptual
+   Pinterest, não uma cópia), com assets DEMO temporários — ver
+   static/images/photography/demo/README.md e o comentário completo
+   em home.html. Usa o mesmo .container das restantes secções (uma
+   variante mais larga foi experimentada e depois revertida, para
+   manter o mesmo eixo esquerdo/direito de toda a Home). */
+
+.photo {
+  padding-block: var(--space-4xl);
+}
+
+/* Espaço reduzido antes da galeria (era --space-2xl) — a galeria deve
+   aparecer rapidamente a seguir à introdução. */
+.photo__intro {
+  max-width: var(--prose-max-width);
+  margin-bottom: var(--space-lg);
+}
+
+/* Galeria masonry/waterfall via CSS columns — cada item preserva a
+   proporção natural da sua própria imagem (sem forçar alturas iguais
+   nem calcular spans manualmente). break-inside:avoid impede que um
+   item seja cortado a meio entre colunas. Esta é a solução CSS-only
+   pedida (sem JavaScript): robusta, bem suportada, e que continua a
+   funcionar sem alterações quando o conteúdo mudar — só a quantidade
+   de <li>/imagens muda, nunca a regra. Breakpoints coerentes com os
+   já usados no resto do projeto (48rem, ver tokens.css) — o máximo
+   passou de 4 para 3 colunas: dentro do mesmo .container (sem
+   .container--wide), 4 colunas deixava cada imagem demasiado
+   pequena; 3 colunas dá-lhe mais presença sem alargar a secção. Gap
+   reduzido (--space-md, era --space-lg) para uma sensação mais
+   coesa de galeria, não de cartões isolados. A ordem dos <li> em
+   home.html foi escolhida deliberadamente (retrato alto e dominante
+   primeiro, depois horizontal, quadrado, retrato, vídeo, horizontal
+   largo, retrato suave) para dar ritmo à composição — não é
+   aleatória. */
+.photo-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  columns: 2;
+  column-gap: var(--space-md);
+}
+
+.photo-grid > li {
+  break-inside: avoid;
+  margin-bottom: var(--space-md);
+}
+
+@media (min-width: 48rem) {
+  .photo-grid {
+    columns: 3;
+  }
+}
+
+/* .photo-card: a imagem é o elemento dominante, sem texto/UI a competir
+   com ela. Funciona tanto para os assets DEMO atuais como, no futuro,
+   para posts reais do Instagram — nesse caso passa de <figure> a
+   <a href="https://www.instagram.com/p/POST_ID/" target="_blank"
+   rel="noopener noreferrer">, sem alterar esta regra nem a do
+   .photo-grid acima (ver comentário completo em home.html). */
+.photo-card {
+  display: block;
+  position: relative;
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform var(--transition-base);
+}
+
+.photo-card img {
+  display: block;
+  width: 100%;
+  height: auto; /* preserva a proporção natural — essencial para masonry real */
+  transition: filter var(--transition-base);
+}
+
+/* Overlay muito subtil (gradiente, não um bloco opaco) — sensação
+   premium/editorial sem esconder a imagem. Serve também de base para
+   uma futura legenda, se vier a existir. */
+.photo-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(27, 26, 24, 0.16), rgba(27, 26, 24, 0) 55%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+}
+
+.photo-card:hover,
+.photo-card:focus-visible {
+  transform: scale(1.03);
+}
+
+.photo-card:hover::after,
+.photo-card:focus-visible::after {
+  opacity: 1;
+}
+
+.photo-card:hover img,
+.photo-card:focus-visible img {
+  filter: brightness(1.04);
+}
+
+/* Indicador de vídeo — pequeno e discreto, com a MESMA linguagem
+   visual das fotografias (não um componente à parte): um círculo
+   translúcido pequeno, canto inferior direito, sempre visível (não
+   depende de hover). O watermark "DEMO" de cada imagem já ocupa o
+   canto inferior esquerdo, por isso o play fica do lado oposto. */
+.photo-card__play {
+  position: absolute;
+  z-index: 1;
+  bottom: var(--space-sm);
+  right: var(--space-sm);
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: rgba(27, 26, 24, 0.42);
+  color: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.photo-card__play svg {
+  width: 0.7rem;
+  height: 0.7rem;
+}
+
+.photo__status {
+  margin: var(--space-xl) 0 0 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-small);
+}
+
 /* -------------------- Footer -------------------- */
 
 .site-footer {

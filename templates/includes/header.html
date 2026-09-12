@@ -40,7 +40,18 @@
           </a>
         </li>
         <li><span class="site-nav__item--pending">{% translate "Tecnologia" %}</span></li>
-        <li><span class="site-nav__item--pending">{% translate "Fotografia" %}</span></li>
+        {% comment %}
+        "Fotografia" segue o mesmo padrão já aplicado a "Sobre" e
+        "Projetos": link real para a secção #fotografia, sempre via
+        {% templatetag openblock %} url 'pages:home' {% templatetag closeblock %}#fotografia.
+        Não é uma decisão nova — reutiliza a mesma regra já
+        estabelecida.
+        {% endcomment %}
+        <li>
+          <a class="site-nav__link" href="{% url 'pages:home' %}#fotografia">
+            {% translate "Fotografia" %}
+          </a>
+        </li>
         <li><span class="site-nav__item--pending">{% translate "Fitness" %}</span></li>
         {% comment %}
         "Projetos" segue o mesmo padrão já aplicado a "Sobre": passa a
